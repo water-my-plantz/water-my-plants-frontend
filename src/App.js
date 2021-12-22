@@ -43,8 +43,8 @@ function App() {
   const [filteredPlants, setFilteredPlants] = useState([]);
   const [hamburgerState, setHamburgerState] = useState(false);
   const [navState, setNavState] = useState(false)
-
-
+ 
+ 
   return (
     <Router>
       <div className="App">
