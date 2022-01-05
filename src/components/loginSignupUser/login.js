@@ -36,7 +36,7 @@ export default function Login() {
             setLoginError(false);
         }
 
-        axiosWithAuth().post('/login', loginFormValues)
+        axiosWithAuth().post('localhost:9000/user/login', loginFormValues)
             .then(res => {
                 localStorage.setItem('token', res.data.payload);
                 console.log("login", res);
@@ -45,7 +45,7 @@ export default function Login() {
             })
             .catch(err => {
                 console.log(err);
-                <Navigate to="/login" />
+                <Navigate to="localhost:9000/user/login" />
             })
     }
 

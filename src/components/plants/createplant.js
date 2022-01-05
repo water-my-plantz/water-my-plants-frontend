@@ -6,7 +6,7 @@
 
 
 import { useContext, useState, useEffect } from "react";
-import Axios from 'axios'
+import axios from 'axios'
 // import * as yup from 'yup'
 import { GlobalPropsContext } from '../GlobalPropsContext'
 import "../../App.css"
@@ -73,10 +73,11 @@ export default function CreatePlant() {
         // setIsLoading(true);
         // console.log(isLoading);
 
-        Axios.post('https://reqres.in/api/users', testObj)
+//NOT WORKING*
+        axios.post('localhost:9000/plants/addplant', plantFormValues)
             .then(res => {
-				// setPlantFormValues(res.data);
-				// setPlantId(res.data.class_id);
+				setPlantFormValues(res.data);
+				setPlantId(res.data.class_id);
                 console.log("plant", res);
             })
             .catch(err => {

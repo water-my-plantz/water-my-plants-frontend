@@ -2,8 +2,11 @@
 
 import "../../App.css"
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 import { GlobalPropsContext } from '../GlobalPropsContext'
+import { axiosWithAuth } from '../../utils/axiosWithAuth'
+import { Redirect } from 'react-router';
+
 
 
 const initialsignUpFormValues = {
@@ -26,7 +29,7 @@ const initialDisabled = true;
 
 export default function Signup() {
     const [signUpFormValues, setSignUpFormValues] = useState(initialsignUpFormValues);
-    //const { isLoading, setIsLoading } = useContext(GlobalPropsContext);
+    const { isLoading, setIsLoading } = useContext(GlobalPropsContext);
     //const [signUpFormValueErrors, setSignUpFormValueErrors] = useState(initialSignupFormErrors)
     const [disabled, setDisabled] = useState(initialDisabled);
     const { user, setUser } = useContext(GlobalPropsContext);
@@ -44,21 +47,20 @@ export default function Signup() {
     
     const signupSubmitHandler = (e) => {
         e.preventDefault();
-        // setIsLoading(true);
-        // console.log(isLoading);
+        setIsLoading(true);
+        console.log(isLoading);
 
-        // axiosWithAuth().post('/signup', signupFormValues)
+        // axiosWithAuth().post('/localhost:9000/api/auth/register', signupFormValues)
         //     .then(res => {
         //         localStorage.setItem('token', res.data.payload);
         //         console.log("signup", res);
         //         setIsLoading(false);
-        //         history.push('/protected');
+        //         navigate.push('/protected');
         //     })
         //     .catch(err => {
         //         console.log(err);
-        //         <Redirect to="/signup" />
+        //         <Navigate to="localhost:9000/api/auth/register" />
         //     })
-        //if user === instructor
     }
 
     // ajusts `disabled` when `formValues` change

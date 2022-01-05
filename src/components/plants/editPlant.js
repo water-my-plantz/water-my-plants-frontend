@@ -23,18 +23,19 @@ export default function EditPlant() {
     const { isLoading, setIsLoading } = useContext(GlobalPropsContext);
 
     const [plantInfo, setPlantInfo] = useState(initialFakePlantData);
-    // const params = useParams();
+    const params = useParams();
+
     // use axios to get plant info to display in form
-    // useEffect(() => {
-    //     axios
-    //         .get(`/editPlant/${params.id}`)
-    //         .then((res) => {
-    //             setPlantInfo(res.data);
-    //         })
-    //         .catch((error) => {
-    //             console.error(error);
-    //         });
-    // }, [params]);
+    useEffect(() => {
+        axios
+            .get(`localhost:9000/plants/:id`)
+            .then((res) => {
+                setPlantInfo(res.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }, [params]);
 
     const initialEditPlantFormValues = { nickname: plantInfo.nickname, species: plantInfo.species, h20Frequency: plantInfo.h20Frequency };
 
