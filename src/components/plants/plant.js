@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "../../App.css"
 import { Link } from "react-router-dom";
 import { GlobalPropsContext } from "../GlobalPropsContext";
@@ -8,7 +8,7 @@ import axios from "axios";
 
 
 export default function Plant(props) {
-    // const { allPlants, user } = useContext(GlobalPropsContext);
+    const { allPlants, user } = useContext(GlobalPropsContext);
     const [plantList, setPlantList] = useState([]);
 
     const [isJoined, setIsJoined] = useState(false);
@@ -16,6 +16,23 @@ export default function Plant(props) {
     const plantId = props.plant.id;
 
     const navigate = useNavigate();
+
+    //NOT WORKING*
+	useEffect(() => {
+		const getPlantList = () => {
+			axios
+				.get("localhost:9000/api/plants") // Endpoint to get all plants in Database
+				.then((res) => {
+					setPlantList(res.data);
+                    console.log(res.data)
+				})
+				.catch((err) => {
+					console.error("Server Error", err);
+				});
+		};
+		getPlantList();
+	}, []);
+
     //will add when getPlantList works
     const handleDelete = () => {
         axios
