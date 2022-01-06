@@ -60,7 +60,7 @@ function App() {
 
             <Route path='/plants' element={<Plants/>}/>
             <Route path='/createplant' element={<CreatePlant/>}/>
-            <Route path='/editplant' element={<EditPlant/>}/>
+            <Route path='/editplant/:id' element={<EditPlant/>}/>
 
           </Routes>
         </GlobalPropsContext.Provider>

@@ -8,13 +8,13 @@ import "../../App.css"
 // import plantFormSchema from "../../validation/plantFormSchema.js";
 
 
-const initialFakePlantData =   {
-  nickname: "Daisy",
-  species: "daisy",
-  h20Frequency: "2x a day",
-}
+// const initialFakePlantData =   {
+//   nickname: "Daisy",
+//   species: "daisy",
+//   h20Frequency: "2x a day",
+// }
 
-const initialCreatePlantFormErrors = {nickname: "", species: "", h20Frequency: "",};
+// const initialCreatePlantFormErrors = {nickname: "", species: "", h20Frequency: "",};
 
 const initialCreateButtonDisabled = true;
 
@@ -22,30 +22,38 @@ const initialCreateButtonDisabled = true;
 export default function EditPlant() {
     const { isLoading, setIsLoading } = useContext(GlobalPropsContext);
 
-    const [plantInfo, setPlantInfo] = useState(initialFakePlantData);
+    const [plantInfo, setPlantInfo] = useState({});
+
+    const initialEditPlantFormValues = { nickname: plantInfo.nickname, species: plantInfo.species, h20Frequency: plantInfo.h20Frequency };   
+
+    const [plantFormValues, setPlantFormValues] =
+        useState(initialEditPlantFormValues);
+
     const params = useParams();
+    const { id } = params
+    const [plantId, setPlantId] = useState(plantInfo?.plant_id);
+
 
     // use axios to get plant info to display in form
     useEffect(() => {
         axios
-            .get(`localhost:9000/plants/:id`)
+            .get(`https://water-my-plants-fullstack-api.herokuapp.com/plants/${id}`)
             .then((res) => {
                 setPlantInfo(res.data);
+                console.log(plantInfo)
             })
             .catch((error) => {
                 console.error(error);
             });
-    }, [params]);
+    }, [plantId]);
 
-    const initialEditPlantFormValues = { nickname: plantInfo.nickname, species: plantInfo.species, h20Frequency: plantInfo.h20Frequency };
 
-    const [plantFormValues, setPlantFormValues] =
-        useState(initialEditPlantFormValues);
-    const [plantId, setPlantId] = useState(plantInfo?.plant_id);
 
-	const [createPlantErrors, setCreatePlantErrors] = useState(
-		initialCreatePlantFormErrors,
-        );
+ 
+
+	// const [createPlantErrors, setCreatePlantErrors] = useState(
+	// 	initialCreatePlantFormErrors,
+    //     );
     const [createDisabled, setCreateDisabled] = useState(
 		initialCreateButtonDisabled,
         );
@@ -69,6 +77,8 @@ export default function EditPlant() {
             [name]: e.target.value,
         };
         setPlantFormValues(newPlantFormValues);
+        
+        console.log()
     };
 
 	//ENABLE BUTTON WHEN NO ERRORS EXIST
@@ -83,9 +93,9 @@ export default function EditPlant() {
         setIsLoading(true);
         // send to database via axios
         axios.put(
-            `/plant/${plantId} `,
+            `https://water-my-plants-fullstack-api.herokuapp.com/plants/${id}`,
             {
-                name: plantInfo.name, type: plantInfo.type, time: plantInfo.time, duration: plantInfo.duration, intensity: plantInfo.intensity, location: plantInfo.location, max: plantInfo.max,
+                nickname: plantInfo.nickname, species: plantInfo.species, h20Frequency: plantInfo.h20Frequency
             },
         )
             .then((res) => {
@@ -98,7 +108,7 @@ export default function EditPlant() {
     };
 
     if (!plantInfo) {
-        return <div>Loading CPlant...</div>;
+        return <div>Loading Plant...</div>;
     }
 
     return (
@@ -144,5 +154,3 @@ export default function EditPlant() {
         </div>
     )
 }
-
-// punch pass capability should be enabled here
