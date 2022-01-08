@@ -4,6 +4,7 @@ import "../../App.css"
 import { useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router";
 import { GlobalPropsContext } from '../GlobalPropsContext'
+import axios from 'axios'
 import { axiosWithAuth } from '../../utils/axiosWithAuth'
 import { Redirect } from 'react-router';
 
@@ -50,17 +51,16 @@ export default function Signup() {
         setIsLoading(true);
         console.log(isLoading);
 
-        // axiosWithAuth().post('/localhost:9000/api/auth/register', signupFormValues)
-        //     .then(res => {
-        //         localStorage.setItem('token', res.data.payload);
-        //         console.log("signup", res);
-        //         setIsLoading(false);
-        //         navigate.push('/protected');
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //         <Navigate to="localhost:9000/api/auth/register" />
-        //     })
+        axiosWithAuth().post('/https://water-my-plants-fullstack-api.herokuapp.com/auth/register', )
+            .then(res => {
+                localStorage.setItem('token', res.data.payload);
+                console.log("signup", res);
+                setIsLoading(false);
+                navigate.push('/protected');
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     // ajusts `disabled` when `formValues` change

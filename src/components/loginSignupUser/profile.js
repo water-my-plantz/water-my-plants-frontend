@@ -19,7 +19,7 @@ export default function Profile() {
 
 
     // const params = useParams();
-    // use axios to get plant info to display in form
+    // use axios to get user info to display in form
     // useEffect(() => {
     //     axios
     //         .get(`/editPlant/${params.id}`)

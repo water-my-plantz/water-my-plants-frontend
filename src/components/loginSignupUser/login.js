@@ -36,16 +36,15 @@ export default function Login() {
             setLoginError(false);
         }
 
-        axiosWithAuth().post('localhost:9000/user/login', loginFormValues)
+        axiosWithAuth().post('https://water-my-plants-fullstack-api.herokuapp.com/user/login', loginFormValues)
             .then(res => {
                 localStorage.setItem('token', res.data.payload);
                 console.log("login", res);
                 setIsLoading(false);
-                navigate.push('/protected');
+                navigate.push('/plants');
             })
             .catch(err => {
                 console.log(err);
-                <Navigate to="localhost:9000/user/login" />
             })
     }
 

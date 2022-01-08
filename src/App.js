@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from "react"
+import { useState, useEffect, Fragment } from "react"
 import { Route, Routes } from "react-router-dom";
 import Login from './components/loginSignupUser/login';
 import Signup from './components/loginSignupUser/signup'
@@ -48,6 +48,7 @@ function App() {
 
   return (
     <Router>
+      <Fragment>
       <div className="App">
         <GlobalPropsContext.Provider value={{ isLoggedIn, setIsLoggedIn, allPlants, setAllPlants, isFetchingPlants, setIsFetchingPlants, setFilteredPlants, filteredPlants, hamburgerState, setHamburgerState, navState, setNavState }}>
 
@@ -55,16 +56,21 @@ function App() {
           <Routes>
             <Route path='/signup' element={<Signup/>}/>
             <Route path='/login' element={<Login/>}/>
-
-            <Route path='/profile' element={<Profile/>}/>
-
-            <Route path='/plants' element={<Plants/>}/>
-            <Route path='/createplant' element={<CreatePlant/>}/>
-            <Route path='/editplant/:id' element={<EditPlant/>}/>
-
+            
+            <PrivateRoute exact path='/profile' element={Profile}/>
+            <PrivateRoute exact path='/plants' element={Plants}/>
+            <PrivateRoute exact path='/createplant' element={CreatePlant}/>
+            <PrivateRoute exact path='//editplant/:id' element={EditPlant}/>
+            {/* <Route exact path='/' element={<PrivateRoute/>}>
+              <Route path='/profile' element={<Profile/>}/>
+              <Route path='/plants' element={<Plants/>}/>
+              <Route path='/createplant' element={<CreatePlant/>}/>
+              <Route path='/editplant/:id' element={<EditPlant/>}/>
+            </Route> */}
           </Routes>
         </GlobalPropsContext.Provider>
       </div>
+      </Fragment>
     </Router>
   );
 }
