@@ -1,14 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { GlobalPropsContext } from "../GlobalPropsContext";
-import { Navigate } from "react-router";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { Redirect } from "react-router-dom";
+import { axiosWithAuth } from '../../utils/axiosWithAuth'
 
 const Logout = () => {
     const { setIsLoggedIn } = useContext(GlobalPropsContext);
+    useEffect(()=> {
+
     console.log('log out');
 
     setIsLoggedIn(false);
-    <Navigate to="/login" />
     axiosWithAuth().post('/logout')
         .then(res => {
             localStorage.removeItem('token')
@@ -18,6 +19,7 @@ const Logout = () => {
 
         })
         .catch(err => console.log(err))
+    }, );
 
     return (<div></div>);
 }

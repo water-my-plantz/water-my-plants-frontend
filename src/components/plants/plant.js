@@ -3,7 +3,8 @@ import React, { useContext, useState, useEffect } from "react";
 import "../../App.css"
 import { Link } from "react-router-dom";
 import { GlobalPropsContext } from "../GlobalPropsContext";
-import { useNavigate, useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
+// import { useNavigate, useParams } from 'react-router-dom'
 import axios from "axios";
 
 
@@ -14,23 +15,24 @@ export default function Plant({plant}) {
 
     const plantId = plant.id;
 
-    const navigate = useNavigate();
+    const history = useHistory();
+    // const navigate = useNavigate();
 	const params = useParams();
 
-    const {nickname, species, water_frequency } = plant;
+    const {image, nickname, species, water_frequency } = plant;
 
 
 
 //MAKE DELETE WORK**
     const handleDelete = () => {
-        // axios
-		// 		.delete("localhost:9000/plants/:id") // Endpoint to get all plants in Database
-		// 		.then((res) => {
-		// 			setPlantList(res.data);
-		// 		})
-		// 		.catch((err) => {
-		// 			console.error("Server Error", err);
-		// 		});
+        axios
+				.delete(`https://water-my-plants-fullstack-api.herokuapp.com/plants/${plant.id}`) // Endpoint to get all plants in Database
+				.then((res) => {
+					// setPlantList(res.data);
+				})
+				.catch((err) => {
+					console.error("Server Error", err);
+				});
     }
 
 
@@ -38,7 +40,7 @@ export default function Plant({plant}) {
         <div className="plantCard">
 
             <h2>{nickname}</h2>
-            <img src={''} alt="plantImage" />
+            <img src={image} alt="plantImage" />
             <p>Species: {species} </p>
             <p>Watering Frequency: {water_frequency}</p>
 

@@ -1,7 +1,8 @@
 
 import { useContext, useState, useEffect } from "react";
-import { Navigate, } from "react-router";
-import { useNavigate } from "react-router";
+// import { Navigate, } from "react-router";
+// import { useNavigate } from "react-router";
+import { useHistory, Redirect } from "react-router-dom";
 import { axiosWithAuth } from '../../utils/axiosWithAuth'
 import { GlobalPropsContext } from '../GlobalPropsContext'
 
@@ -12,11 +13,11 @@ const initialLogInFormValues = { username: "", password: "" };
 
 export default function Login() {
     const [loginFormValues, setLogInFormValues] = useState(initialLogInFormValues);
-    const { isLoading, setIsLoading } = useContext(GlobalPropsContext);
     const { user, setUser } = useContext(GlobalPropsContext);
     const [loginError, setLoginError] = useState(false);
 
-    let navigate = useNavigate();
+    // let navigate = useNavigate();
+    let history = useHistory();
 
     const onChange = (e) => {
         setLogInFormValues({
@@ -27,24 +28,27 @@ export default function Login() {
 
     const loginSubmitHandler = (e) => {
         e.preventDefault();
-        // setIsLoading(true);
-        // console.log(isLoading);
 
-        if (loginFormValues.username !== "user" && loginFormValues.password !== "pass") {
-            setLoginError(true);
-        } else {
-            setLoginError(false);
-        }
 
-        axiosWithAuth().post('https://water-my-plants-fullstack-api.herokuapp.com/user/login', loginFormValues)
+        // if (loginFormValues.username !== "user" && loginFormValues.password !== "pass") {
+        //     setLoginError(true);
+        // } else {
+        //     setLoginError(false);
+        // }
+
+        const user = {username: loginFormValues.username, password: loginFormValues.password}
+
+        axiosWithAuth().post('https://water-my-plants-fullstack-api.herokuapp.com/user/login', user)
             .then(res => {
                 localStorage.setItem('token', res.data.payload);
                 console.log("login", res);
-                setIsLoading(false);
-                navigate.push('/plants');
+                history.push('/plants');
+                
             })
             .catch(err => {
                 console.log(err);
+                <Redirect to="/login" />
+
             })
     }
 
@@ -77,7 +81,7 @@ export default function Login() {
 
             {loginError && <p style={{ color: "red" }}>Username or Password does not match!</p>}
 
-            <p onClick={() => { navigate('/signup') }}
+            <p onClick={() => { history.push('/signup') }}
                 className="signUpFinePrintUnderForm" >
                 <span style={{ display: 'inline' }}> Brand New?  Sign Up for an account!</span>
             </p>

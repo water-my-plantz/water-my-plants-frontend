@@ -11,6 +11,7 @@ body {
   font-family: "Fredoka One", cursive;
 }
 
+
 .App {
   text-align: center;
 }
@@ -22,6 +23,10 @@ body {
 
 }
 
+img.resize {
+  width:540px; /* you can use % */
+  height: auto;
+}
 
 .navBar {
   background-color: #d3ffe5;

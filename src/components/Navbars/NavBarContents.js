@@ -12,7 +12,7 @@ export default function NavBarContents() {
             <nav>
                 <ul>
                     {/* login is shown when not logged in*/}
-                    {(isLoggedIn === false) && <li><Link to="/login">Login</Link></li>}
+                    {(isLoggedIn === false) && <li><Link to="/">Login</Link></li>}
 
                     {/* account is shown when logged in */}
                     {(isLoggedIn === true) && <li><Link to="/profile">Edit Profile </Link> </li>}

@@ -1,6 +1,8 @@
 import './App.css';
 import { useState, useEffect, Fragment } from "react"
-import { Route, Routes } from "react-router-dom";
+// import { Route, Routes } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import Logout from './components/loginSignupUser/logout';
 import Login from './components/loginSignupUser/login';
 import Signup from './components/loginSignupUser/signup'
 import NavBar from './components/Navbars/NavBar';
@@ -37,7 +39,7 @@ const initialFakePlantData = [
 ]
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [allPlants, setAllPlants] = useState(initialFakePlantData);
   const [isFetchingPlants, setIsFetchingPlants] = useState(false);
   const [filteredPlants, setFilteredPlants] = useState([]);
@@ -53,6 +55,17 @@ function App() {
         <GlobalPropsContext.Provider value={{ isLoggedIn, setIsLoggedIn, allPlants, setAllPlants, isFetchingPlants, setIsFetchingPlants, setFilteredPlants, filteredPlants, hamburgerState, setHamburgerState, navState, setNavState }}>
 
           <NavBar />
+
+          <Switch>
+          <Route path="/signup" component={Signup} />
+          <Route exact path="/" component={Login} />
+          <PrivateRoute exact path='/profile' component={Profile}/>
+          <Route path="/plants" component={Plants} />
+          <Route path="/createplant" component={CreatePlant} />
+          <PrivateRoute path="/logout" component={Logout} />
+          <PrivateRoute path="/editplant/:id" component={EditPlant} />
+          </Switch>
+{/* 
           <Routes>
             <Route path='/signup' element={<Signup/>}/>
             <Route path='/login' element={<Login/>}/>
@@ -60,14 +73,14 @@ function App() {
             <PrivateRoute exact path='/profile' element={Profile}/>
             <PrivateRoute exact path='/plants' element={Plants}/>
             <PrivateRoute exact path='/createplant' element={CreatePlant}/>
-            <PrivateRoute exact path='//editplant/:id' element={EditPlant}/>
+            <PrivateRoute exact path='/editplant/:id' element={EditPlant}/> */}
             {/* <Route exact path='/' element={<PrivateRoute/>}>
               <Route path='/profile' element={<Profile/>}/>
               <Route path='/plants' element={<Plants/>}/>
               <Route path='/createplant' element={<CreatePlant/>}/>
               <Route path='/editplant/:id' element={<EditPlant/>}/>
             </Route> */}
-          </Routes>
+          {/* </Routes> */}
         </GlobalPropsContext.Provider>
       </div>
       </Fragment>

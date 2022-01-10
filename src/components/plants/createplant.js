@@ -1,34 +1,34 @@
 // - `id`: Integer
 // - `nickname`: String
 // - `species` : String
-// - `h2oFrequency`: Type determined by implementation
+// - `water_frequency`: Type determined by implementation
 // - `image`: (optional)
 
 
 import { useContext, useState, useEffect } from "react";
 import axios from 'axios'
-// import * as yup from 'yup'
+import * as yup from 'yup'
 import { GlobalPropsContext } from '../GlobalPropsContext'
 import "../../App.css"
-// import plantFormSchema from "../../validation/plantFormSchema.js";
+import plantFormSchema from "../../validation/plantFormSchema.js";
 
 
-const initialCreatePlantFormValues = {id: "", name: "", species: "", h2oFrequency: ""};
+const initialCreatePlantFormValues = {nickname: "", species: "", water_frequency: ""};
 
-const initialCreatePlantFormErrors = {id: "", name: "", species: "", h2oFrequency: ""}; 
+const initialCreatePlantFormErrors = {nickname: "", species: "", water_frequency: ""}; 
 
 const initialCreateButtonDisabled = false;//CHANGE TO TRUEY
 
 const testObjValues = {
 };
 
+// const plantImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Oenanthe_crocata_kz04.jpg"
+
 
 export default function CreatePlant() {
     const { isLoading, setIsLoading } = useContext(GlobalPropsContext);
 
-    const [plantId, setPlantId] = useState(0);
     const [plantFormValues, setPlantFormValues] = useState(initialCreatePlantFormValues);
-
 	const [createPlantErrors, setCreatePlantErrors] = useState(
 		initialCreatePlantFormErrors,
         );
@@ -41,16 +41,16 @@ export default function CreatePlant() {
 
     const onChange = (e) => {
 		const { name, value } = e.target;
-		// yup
-		// 	.reach(plantFormSchema, name)
-		// 	.validate(value)
-		// 	.then(() => {
-		// 		setCreatePlantErrors({ ...createPlantErrors, [name]: "" });
-		// 	})
-		// 	.catch((err) => {
-		// 		setCreatePlantErrors({ ...createPlantErrors, [name]: err.message });
-		// 	});
-		// console.log(createPlantErrors);
+		yup
+			.reach(plantFormSchema, name)
+			.validate(value)
+			.then(() => {
+				setCreatePlantErrors({ ...createPlantErrors, [name]: "" });
+			})
+			.catch((err) => {
+				setCreatePlantErrors({ ...createPlantErrors, [name]: err.message });
+			});
+		console.log(createPlantErrors);
 
             setPlantFormValues({
             ...plantFormValues, [e.target.name]: e.target.value
@@ -61,23 +61,26 @@ export default function CreatePlant() {
 
     
 	//ENABLE BUTTON WHEN NO ERRORS EXIST
-	// useEffect(() => {
-	// 	plantFormSchema.isValid(plantFormValues).then((isSchemaValid) => {
-	// 		setCreateDisabled(!isSchemaValid);
-	// 	});
-	// }, [plantFormValues]);
+	useEffect(() => {
+		plantFormSchema.isValid(plantFormValues).then((isSchemaValid) => {
+			setCreateDisabled(!isSchemaValid);
+		});
+	}, [plantFormValues]);
 
     const createPlantSubmitHandler = (e) => {
         e.preventDefault();
-        console.log(plantFormValues)
-        // setIsLoading(true);
-        // console.log(isLoading);
+        // console.log(plantFormValues)
+
+        const plant = {
+        nickname: plantFormValues.nickname, 
+        species: plantFormValues.species,
+        water_frequency: plantFormValues.water_frequency }
+        console.log(plant);
 
 //NOT WORKING*
-        axios.post('localhost:9000/plants/addplant', plantFormValues)
+        axios.post('https://water-my-plants-fullstack-api.herokuapp.com/plants/addplant', plant)
             .then(res => {
 				setPlantFormValues(res.data);
-				setPlantId(res.data.class_id);
                 console.log("plant", res);
             })
             .catch(err => {
@@ -92,12 +95,12 @@ export default function CreatePlant() {
                 <h1>Create a Plant!</h1>
                 <input
                     placeholder="Plant Name"
-                    name="name"
-                    label="name"
+                    name="nickname"
+                    label="nickname"
                     type="text"
-                    id="name"
+                    id="nickname"
                     onChange={onChange}
-                    value={plantFormValues.name}
+                    value={plantFormValues.nickname}
                 />
                 <input
                     placeholder="Plant Species"
@@ -111,12 +114,12 @@ export default function CreatePlant() {
 
                 <input
                     placeholder="Watering Frequency"
-                    name="h20Frequency"
-                    label="h20Frequency"
+                    name="water_frequency"
+                    label="water_frequency"
                     type="text"
-                    id="h20Frequency"
+                    id="water_frequency"
                     onChange={onChange}
-                    value={plantFormValues.h20Frequency}
+                    value={plantFormValues.water_frequency}
                 />
 
                 <button 

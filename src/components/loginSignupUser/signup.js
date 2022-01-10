@@ -1,86 +1,90 @@
 // 1. `user` can sign-up / create an account by providing a unique `username`, a valid mobile `phoneNumber` and a `password`.
 
 import "../../App.css"
-import { useContext, useState } from "react";
-import { Navigate, useNavigate } from "react-router";
+import { useContext, useState, useEffect } from "react";
+import { useHistory, Redirect } from "react-router-dom";
 import { GlobalPropsContext } from '../GlobalPropsContext'
-import axios from 'axios'
 import { axiosWithAuth } from '../../utils/axiosWithAuth'
-import { Redirect } from 'react-router';
+import signupFormSchema from "../../validation/signupFormSchema.js";
+import * as yup from 'yup'
+
+
 
 
 
 const initialsignUpFormValues = {
     username: '',
-    phoneNumber: '',
+    phone_number: '',
     password: '',
     retypePassword: '',
 }
 
 const initialSignUpFormErrors = {
     username: '',
-    phoneNumber: '',
+    phone_number: '',
     password: '',
-    retypePassword: '',
 }
 
+
 // submit is disabled until inputs validated
-const initialDisabled = true;
+const initialDisabled = false;
 
 
 export default function Signup() {
     const [signUpFormValues, setSignUpFormValues] = useState(initialsignUpFormValues);
-    const { isLoading, setIsLoading } = useContext(GlobalPropsContext);
-    //const [signUpFormValueErrors, setSignUpFormValueErrors] = useState(initialSignupFormErrors)
+    // const [signupErrors, setSignupErrors] = useState(initialSignupFormErrors)
     const [disabled, setDisabled] = useState(initialDisabled);
     const { user, setUser } = useContext(GlobalPropsContext);
-    let navigate = useNavigate();
-
+    let history = useHistory();
 
 
     // controls the form input changes via state
     const onChange = (e) => {
+        const { name, value } = e.target;
+        //validation
+    //     yup
+    //     .reach(signupFormSchema, name)
+    //     .validate(value)
+    //     .then(() => {
+    //         setSignupErrors({ ...signupErrors, [name]: "" });
+    //     })
+    //     .catch((err) => {
+    //         setSignupErrors({ ...signupErrors, [name]: err.message });
+    //     });
+    // console.log(signupErrors);
+
         setSignUpFormValues({
             ...signUpFormValues, [e.target.name]: e.target.value
         })
     }
 
-    
+    	//ENABLE BUTTON WHEN NO ERRORS EXIST
+	// useEffect(() => {
+    //     signupFormSchema.isValid(signupFormValues).then((isSchemaValid) => {
+	// 		setCreateDisabled(!isSchemaValid);
+	// 	});
+	// }, [signupFormValues]);
+
     const signupSubmitHandler = (e) => {
         e.preventDefault();
-        setIsLoading(true);
-        console.log(isLoading);
 
-        axiosWithAuth().post('/https://water-my-plants-fullstack-api.herokuapp.com/auth/register', )
+        const newUser = {
+            username: signUpFormValues.username, 
+            password: signUpFormValues.password, 
+            phone_number: signUpFormValues.phone_number
+        }
+
+        axiosWithAuth().post('https://water-my-plants-fullstack-api.herokuapp.com/user/register', newUser)
             .then(res => {
                 localStorage.setItem('token', res.data.payload);
                 console.log("signup", res);
-                setIsLoading(false);
-                navigate.push('/protected');
+                history.push('/plants');
             })
             .catch(err => {
                 console.log(err);
+                <Redirect to="/signup"/>
             })
     }
-
-    // ajusts `disabled` when `formValues` change
-    //   useEffect(() => {
-    //     schema.isValid(signupFormValues)
-    //         .then(isSchemaValid => {
-    //             setDisabled(!isSchemaValid) //disable the submt button if not valid
-    //         })
-    // }, [signupFormValues])
-
-
-    //checks validation with yup, run form errors
-    // yup.reach(schema, name)
-    //   .validate(value)
-    //   .then(() => {
-    //     setFormErrors({ ...formErrors, [name]: "" })
-    //   })
-    //   .catch(err => {
-    //     setFormErrors({ ...formErrors, [name]: err.message })
-    //   })
 
 
 
@@ -102,12 +106,12 @@ export default function Signup() {
 
                     <input
                         placeholder="phone number"
-                        name="phoneNumber"
-                        label="phoneNumber"
+                        name="phone_number"
+                        label="phone_number"
                         type="text"
-                        id="phoneNumber"
+                        id="phone_number"
                         onChange={onChange}
-                        value={signUpFormValues.phone}
+                        value={signUpFormValues.phone_number}
                     />
 
                     <input
@@ -124,7 +128,7 @@ export default function Signup() {
                         name="retypePassword"
                         label="retypePassword"
                         type="password"
-                        id="password"
+                        id="retypePassword"
                         onChange={onChange}
                         value={signUpFormValues.retypePassword}
                     />
@@ -132,7 +136,7 @@ export default function Signup() {
                         Sign Up!
                     </button>
                 </form>
-                <p onClick={() => { navigate('/login') }} className="signUpFinePrintUnderForm" >
+                <p onClick={() => { history.push('/login') }} className="signUpFinePrintUnderForm" >
                     <span style={{display: "inline"}}>
                         Already Have An Account?...Login Here!
                     </span>

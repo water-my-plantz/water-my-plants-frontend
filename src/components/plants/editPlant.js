@@ -11,10 +11,10 @@ import "../../App.css"
 // const initialFakePlantData =   {
 //   nickname: "Daisy",
 //   species: "daisy",
-//   h20Frequency: "2x a day",
+//   water_frequency: "2x a day",
 // }
 
-// const initialCreatePlantFormErrors = {nickname: "", species: "", h20Frequency: "",};
+// const initialCreatePlantFormErrors = {nickname: "", species: "", water_frequency: "",};
 
 const initialCreateButtonDisabled = true;
 
@@ -24,7 +24,7 @@ export default function EditPlant() {
 
     const [plantInfo, setPlantInfo] = useState({});
 
-    const initialEditPlantFormValues = { nickname: plantInfo.nickname, species: plantInfo.species, h20Frequency: plantInfo.h20Frequency };   
+    const initialEditPlantFormValues = { nickname: plantInfo.nickname, species: plantInfo.species, water_frequency: plantInfo.water_frequency };   
 
     const [plantFormValues, setPlantFormValues] =
         useState(initialEditPlantFormValues);
@@ -40,16 +40,15 @@ export default function EditPlant() {
             .get(`https://water-my-plants-fullstack-api.herokuapp.com/plants/${id}`)
             .then((res) => {
                 setPlantInfo(res.data);
-                console.log(plantInfo)
+                console.log('plantInfo',plantInfo)
+                console.log(res.data)
+
             })
             .catch((error) => {
                 console.error(error);
             });
     }, [plantId]);
 
-
-
- 
 
 	// const [createPlantErrors, setCreatePlantErrors] = useState(
 	// 	initialCreatePlantFormErrors,
@@ -95,7 +94,7 @@ export default function EditPlant() {
         axios.put(
             `https://water-my-plants-fullstack-api.herokuapp.com/plants/${id}`,
             {
-                nickname: plantInfo.nickname, species: plantInfo.species, h20Frequency: plantInfo.h20Frequency
+                nickname: plantInfo.nickname, species: plantInfo.species, water_frequency: plantInfo.water_frequency
             },
         )
             .then((res) => {
@@ -136,12 +135,12 @@ export default function EditPlant() {
 
                 <input
                     placeholder="Watering Frequency"
-                    name="h20Frequency"
-                    label="h20Frequency"
+                    name="water_frequency"
+                    label="water_frequency"
                     type="text"
-                    id="h20Frequency"
+                    id="water_frequency"
                     onChange={onChange}
-                    value={plantFormValues.h20Frequency}
+                    value={plantFormValues.water_frequency}
                 />
 
                 <button 
