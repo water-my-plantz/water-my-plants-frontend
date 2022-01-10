@@ -13,7 +13,7 @@ const initialLogInFormValues = { username: "", password: "" };
 
 export default function Login() {
     const [loginFormValues, setLogInFormValues] = useState(initialLogInFormValues);
-    const { user, setUser } = useContext(GlobalPropsContext);
+    const { isLoggedIn, setIsLoggedIn } = useContext(GlobalPropsContext);
     const [loginError, setLoginError] = useState(false);
 
     // let navigate = useNavigate();
@@ -29,7 +29,6 @@ export default function Login() {
     const loginSubmitHandler = (e) => {
         e.preventDefault();
 
-
         // if (loginFormValues.username !== "user" && loginFormValues.password !== "pass") {
         //     setLoginError(true);
         // } else {
@@ -43,7 +42,8 @@ export default function Login() {
                 localStorage.setItem('token', res.data.payload);
                 console.log("login", res);
                 history.push('/plants');
-                
+                setIsLoggedIn = true;
+
             })
             .catch(err => {
                 console.log(err);

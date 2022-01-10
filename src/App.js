@@ -39,7 +39,7 @@ const initialFakePlantData = [
 ]
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [allPlants, setAllPlants] = useState(initialFakePlantData);
   const [isFetchingPlants, setIsFetchingPlants] = useState(false);
   const [filteredPlants, setFilteredPlants] = useState([]);
@@ -59,7 +59,7 @@ function App() {
           <Switch>
           <Route path="/signup" component={Signup} />
           <Route exact path="/" component={Login} />
-          <PrivateRoute exact path='/profile' component={Profile}/>
+          <PrivateRoute exact path='/profile/:id' component={Profile}/>
           <Route path="/plants" component={Plants} />
           <Route path="/createplant" component={CreatePlant} />
           <PrivateRoute path="/logout" component={Logout} />

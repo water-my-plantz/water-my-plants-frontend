@@ -6,6 +6,7 @@ import { GlobalPropsContext } from "../GlobalPropsContext";
 import { useHistory, useParams } from 'react-router-dom'
 // import { useNavigate, useParams } from 'react-router-dom'
 import axios from "axios";
+import deleteItemHandler from "../../utils/deletePlant"
 
 
 export default function Plant({plant}) {
@@ -25,10 +26,11 @@ export default function Plant({plant}) {
 
 //MAKE DELETE WORK**
     const handleDelete = () => {
+        
         axios
-				.delete(`https://water-my-plants-fullstack-api.herokuapp.com/plants/${plant.id}`) // Endpoint to get all plants in Database
+				.delete(`https://water-my-plants-fullstack-api.herokuapp.com/plants/${plantId}`) // Endpoint to get all plants in Database
 				.then((res) => {
-					// setPlantList(res.data);
+					// getPlantList(res.data);
 				})
 				.catch((err) => {
 					console.error("Server Error", err);

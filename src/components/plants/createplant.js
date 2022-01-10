@@ -11,6 +11,8 @@ import * as yup from 'yup'
 import { GlobalPropsContext } from '../GlobalPropsContext'
 import "../../App.css"
 import plantFormSchema from "../../validation/plantFormSchema.js";
+import { useHistory, Redirect } from "react-router-dom";
+
 
 
 const initialCreatePlantFormValues = {nickname: "", species: "", water_frequency: ""};
@@ -27,6 +29,8 @@ const testObjValues = {
 
 export default function CreatePlant() {
     const { isLoading, setIsLoading } = useContext(GlobalPropsContext);
+    let history = useHistory();
+
 
     const [plantFormValues, setPlantFormValues] = useState(initialCreatePlantFormValues);
 	const [createPlantErrors, setCreatePlantErrors] = useState(
@@ -39,6 +43,7 @@ export default function CreatePlant() {
 
     const [testObj, setTestObj] = useState(testObjValues)
 
+
     const onChange = (e) => {
 		const { name, value } = e.target;
 		yup
@@ -49,6 +54,7 @@ export default function CreatePlant() {
 			})
 			.catch((err) => {
 				setCreatePlantErrors({ ...createPlantErrors, [name]: err.message });
+                <Redirect to="/login" />
 			});
 		console.log(createPlantErrors);
 
@@ -77,11 +83,11 @@ export default function CreatePlant() {
         water_frequency: plantFormValues.water_frequency }
         console.log(plant);
 
-//NOT WORKING*
         axios.post('https://water-my-plants-fullstack-api.herokuapp.com/plants/addplant', plant)
             .then(res => {
 				setPlantFormValues(res.data);
                 console.log("plant", res);
+                history.push('/plants');
             })
             .catch(err => {
                 console.log(err);

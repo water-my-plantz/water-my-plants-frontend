@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 // import * as yup from 'yup'
 import { GlobalPropsContext } from '../GlobalPropsContext'
 import "../../App.css"
@@ -13,23 +14,23 @@ const initialFakeUserData =   {
 
 export default function Profile() {
 
-  const [userInfo, setUserInfo] = useState(initialFakeUserData);
+  const [userInfo, setUserInfo] = useState();
   const { isLoading, setIsLoading } = useContext(GlobalPropsContext);
   const [userId, setUserId] = useState(userInfo?.user_id);
 
 
-    // const params = useParams();
+    const params = useParams();
     // use axios to get user info to display in form
-    // useEffect(() => {
-    //     axios
-    //         .get(`/editPlant/${params.id}`)
-    //         .then((res) => {
-    //             setPlantInfo(res.data);
-    //         })
-    //         .catch((error) => {
-    //             console.error(error);
-    //         });
-    // }, [params]);
+    useEffect(() => {
+        axios
+            .get(`https://water-my-plants-fullstack-api.herokuapp.com/user/${params.id}`)
+            .then((res) => {
+                setUserInfo(res.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }, [params]);
 
 
   const onChange = (e) => {

@@ -6,7 +6,7 @@ import { GlobalPropsContext } from "../GlobalPropsContext";
 export default function Search() {
     const { setFilteredPlants, allPlants } = useContext(GlobalPropsContext);
     const [searchInputValue, setSearchInputValue] = useState("");
-    const [filterDropDownValue, setFilterDropDownValue] = useState("name");
+    const [filterDropDownValue, setFilterDropDownValue] = useState("");
 
 
     const handleDropdownChange = (e) => {

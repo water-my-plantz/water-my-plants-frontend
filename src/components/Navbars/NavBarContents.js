@@ -5,7 +5,6 @@ import { GlobalPropsContext } from "../GlobalPropsContext";
 
 export default function NavBarContents() {
     const { isLoggedIn, setHamburgerState } = useContext(GlobalPropsContext);
-    const { user } = useContext(GlobalPropsContext);
 
     return (
         <div>

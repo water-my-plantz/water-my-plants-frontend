@@ -12,8 +12,9 @@ export default function Plants() {
     const [plantList, setPlantList] = useState([]);
 
 
+
 useEffect(() => {
-		const getPlantList = () => {
+		// const getPlantList = () => {
 			axios
 				.get(`https://water-my-plants-fullstack-api.herokuapp.com/plants`) // Endpoint to get all plants in Database
 				.then((res) => {
@@ -23,8 +24,8 @@ useEffect(() => {
 				.catch((err) => {
 					console.error("Server Error", err);
 				});
-		};
-		getPlantList();
+		// };
+		// getPlantList();
 	}, []);
 
 
@@ -39,10 +40,10 @@ useEffect(() => {
 					</div>
 				))}
 
-                {/* {isFetchingPlants ? "Loading Plants..." :
+                {isFetchingPlants ? "Loading Plants..." :
                     filteredPlants.map((eachPlant) => (
                         <Plant plant={eachPlant} key={eachPlant.id} />
-                    ))} */}
+                    ))}
             </div>
         </div>
     )

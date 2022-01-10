@@ -34,7 +34,7 @@ export default function Signup() {
     const [signUpFormValues, setSignUpFormValues] = useState(initialsignUpFormValues);
     // const [signupErrors, setSignupErrors] = useState(initialSignupFormErrors)
     const [disabled, setDisabled] = useState(initialDisabled);
-    const { user, setUser } = useContext(GlobalPropsContext);
+    const { isLoggedIn, setIsLoggedIn } = useContext(GlobalPropsContext);
     let history = useHistory();
 
 
@@ -68,6 +68,7 @@ export default function Signup() {
     const signupSubmitHandler = (e) => {
         e.preventDefault();
 
+
         const newUser = {
             username: signUpFormValues.username, 
             password: signUpFormValues.password, 
@@ -79,6 +80,8 @@ export default function Signup() {
                 localStorage.setItem('token', res.data.payload);
                 console.log("signup", res);
                 history.push('/plants');
+                setIsLoggedIn = true;
+
             })
             .catch(err => {
                 console.log(err);
