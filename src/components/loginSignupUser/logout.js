@@ -2,23 +2,19 @@ import React, { useContext, useEffect } from "react";
 import { GlobalPropsContext } from "../GlobalPropsContext";
 import { Redirect } from "react-router-dom";
 import { axiosWithAuth } from '../../utils/axiosWithAuth'
+import axios from 'axios'
 
 const Logout = () => {
     const { setIsLoggedIn } = useContext(GlobalPropsContext);
-    useEffect(()=> {
 
+
+    useEffect(()=> {
     console.log('log out');
 
+    localStorage.removeItem('token');
+    window.location.pathname = '/';
     setIsLoggedIn(false);
-    axiosWithAuth().post('/logout')
-        .then(res => {
-            localStorage.removeItem('token')
-            window.location.pathname = '/login'
-            setIsLoggedIn(false);
-            <Redirect to="/login" />
-
-        })
-        .catch(err => console.log(err))
+    <Redirect to="/" />;
     }, );
 
     return (<div></div>);

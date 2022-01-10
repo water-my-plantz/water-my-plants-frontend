@@ -75,7 +75,7 @@ export default function Signup() {
             phone_number: signUpFormValues.phone_number
         }
 
-        axiosWithAuth().post('https://water-my-plants-fullstack-api.herokuapp.com/user/register', newUser)
+        axiosWithAuth().post('/user/register', newUser)
             .then(res => {
                 localStorage.setItem('token', res.data.payload);
                 console.log("signup", res);

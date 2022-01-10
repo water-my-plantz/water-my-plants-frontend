@@ -42,7 +42,7 @@ export default function Plant({plant}) {
         <div className="plantCard">
 
             <h2>{nickname}</h2>
-            <img src={image} alt="plantImage" />
+            <img src={image} alt="" />
             <p>Species: {species} </p>
             <p>Watering Frequency: {water_frequency}</p>
 

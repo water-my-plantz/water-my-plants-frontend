@@ -23,9 +23,9 @@ body {
 
 }
 
-img.resize {
-  width:540px; /* you can use % */
-  height: auto;
+img {
+  width: 200px;; 
+  height: 250px;
 }
 
 .navBar {
