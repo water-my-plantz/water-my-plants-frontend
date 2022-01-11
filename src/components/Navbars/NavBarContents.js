@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import { GlobalPropsContext } from "../GlobalPropsContext";
 
 export default function NavBarContents() {
-    const { isLoggedIn, setHamburgerState } = useContext(GlobalPropsContext);
+    const username = localStorage.getItem('username')
 
+    const { isLoggedIn, setHamburgerState } = useContext(GlobalPropsContext);
+    
     return (
         <div>
             <nav>
@@ -14,10 +16,10 @@ export default function NavBarContents() {
                     {(isLoggedIn === false) && <li><Link to="/">Login</Link></li>}
 
                     {/* account is shown when logged in */}
-                    {(isLoggedIn === true) && <li><Link to="/profile">Edit Profile </Link> </li>}
+                    {(isLoggedIn === true) && <li><Link to='/profile/${username}'>Profile </Link> </li>}
 
                     {/* plants is shown when logged in */}
-                    {(isLoggedIn === true) && <li><Link to="/plants">My Plants</Link> </li>}
+                    {(isLoggedIn === true) && <li><Link to="/plants">Plant Collection</Link> </li>}
 
                     {/* account is shown when logged in */}
                     {(isLoggedIn === true) && <li><Link to="/createplant">Add a Plant</Link> </li>}

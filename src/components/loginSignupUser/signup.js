@@ -133,7 +133,15 @@ export default function Signup() {
                         id="retypePassword"
                         onChange={onChange}
                         value={signUpFormValues.retypePassword}
-                    />
+                    />						
+                    
+                    {/* RENDER THE VALIDATION ERRORS HERE */}
+                        {/* <div className="formErrors">
+						<div>{createPotluckErrors.title}</div>
+						<div>{createPotluckErrors.date}</div>
+						<div>{createPotluckErrors.time}</div>
+						<div>{createPotluckErrors.location}</div>
+						</div> */}
                     <button type="submit" disabled={disabled}>
                         Sign Up!
                     </button>

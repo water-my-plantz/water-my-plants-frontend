@@ -109,7 +109,7 @@ export default function CreatePlant() {
                     value={plantFormValues.nickname}
                 />
                 <input
-                    placeholder="Plant Species"
+                    placeholder="Species"
                     name="species"
                     label="species"
                     type="text"
@@ -127,11 +127,16 @@ export default function CreatePlant() {
                     onChange={onChange}
                     value={plantFormValues.water_frequency}
                 />
+				{/* RENDER THE VALIDATION ERRORS HERE */}
+                <div className="formErrors">
+					<div>{createPlantErrors.nickname}</div>
+					<div>{createPlantErrors.species}</div>
+					<div>{createPlantErrors.water_frequency}</div>
+				</div>
 
                 <button 
                 type="submit"
-                disabled={createDisabled}
-                >
+                disabled={createDisabled}>
                     Create a Plant!
                 </button>
             </form>

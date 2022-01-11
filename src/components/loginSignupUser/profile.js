@@ -18,6 +18,7 @@ export default function Profile() {
   const { isLoading, setIsLoading } = useContext(GlobalPropsContext);
   const [userId, setUserId] = useState(userInfo?.user_id);
 
+  const username = localStorage.getItem('username')
 
     const params = useParams();
     // use axios to get user info to display in form
@@ -56,6 +57,7 @@ export default function Profile() {
               console.log(userId);
           });
   };
+
 
   return (
     <div>

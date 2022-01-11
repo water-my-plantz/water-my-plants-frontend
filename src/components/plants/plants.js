@@ -9,8 +9,8 @@ import axios from "axios";
 
 export default function Plants() {
     const { filteredPlants, isFetchingPlants } = useContext(GlobalPropsContext);
-    const [plantList, setPlantList] = useState([]);
-
+    // const [plantList, setPlantList] = useState([]);
+    const { plantList, setPlantList } = useContext(GlobalPropsContext);
 
 
 useEffect(() => {
@@ -19,7 +19,7 @@ useEffect(() => {
 				.get(`https://water-my-plants-fullstack-api.herokuapp.com/plants`) // Endpoint to get all plants in Database
 				.then((res) => {
 					setPlantList(res.data);
-                    console.log(res.data)
+            console.log(res.data)
 				})
 				.catch((err) => {
 					console.error("Server Error", err);

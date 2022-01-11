@@ -13,7 +13,7 @@ const initialLogInFormValues = { username: "", password: "" };
 
 export default function Login() {
     const [loginFormValues, setLogInFormValues] = useState(initialLogInFormValues);
-    const { isLoggedIn, setIsLoggedIn } = useContext(GlobalPropsContext);
+    const { isLoggedIn, setIsLoggedIn, user, setUser } = useContext(GlobalPropsContext);
     const [loginError, setLoginError] = useState(false);
 
     // let navigate = useNavigate();
@@ -43,6 +43,8 @@ export default function Login() {
                 console.log("login", res);
                 history.push('/plants');
                 setIsLoggedIn(true);
+                // setUser(user)
+                
             })
             .catch(err => {
                 console.log(err);

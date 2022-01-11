@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect, Fragment } from "react"
 // import { Route, Routes } from "react-router-dom";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Logout from './components/loginSignupUser/logout';
 import Login from './components/loginSignupUser/login';
 import Signup from './components/loginSignupUser/signup'
@@ -41,25 +41,32 @@ const initialFakePlantData = [
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [allPlants, setAllPlants] = useState([]);
+  const [plantList, setPlantList] = useState([]);
   const [isFetchingPlants, setIsFetchingPlants] = useState(false);
   const [filteredPlants, setFilteredPlants] = useState([]);
   const [hamburgerState, setHamburgerState] = useState(false);
   const [navState, setNavState] = useState(false)
-
-
+  
+useEffect(() => {
+  if (localStorage.getItem('token')) {
+    setIsLoggedIn(true)  
+  } else {
+      return <Redirect to='/' />
+    }
+},[])
 
   return (
     <Router>
       <Fragment>
       <div className="App">
-        <GlobalPropsContext.Provider value={{ isLoggedIn, setIsLoggedIn, allPlants, setAllPlants, isFetchingPlants, setIsFetchingPlants, setFilteredPlants, filteredPlants, hamburgerState, setHamburgerState, navState, setNavState }}>
+        <GlobalPropsContext.Provider value={{ isLoggedIn, setIsLoggedIn, allPlants, setAllPlants, plantList, setPlantList, isFetchingPlants, setIsFetchingPlants, setFilteredPlants, filteredPlants, hamburgerState, setHamburgerState, navState, setNavState }}>
 
           <NavBar />
 
           <Switch>
           <Route path="/signup" component={Signup} />
           <Route exact path="/" component={Login} />
-          <PrivateRoute exact path='/profile/:id' component={Profile}/>
+          <PrivateRoute exact path='/profile/:username' component={Profile}/>
           <PrivateRoute path="/plants" component={Plants} />
           <PrivateRoute path="/createplant" component={CreatePlant} />
           <PrivateRoute path="/logout" component={Logout} />

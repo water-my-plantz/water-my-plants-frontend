@@ -4,7 +4,7 @@ import { GlobalPropsContext } from "../GlobalPropsContext";
 
 
 export default function Search() {
-    const { setFilteredPlants, allPlants } = useContext(GlobalPropsContext);
+    const { setFilteredPlants, plantList } = useContext(GlobalPropsContext);
     const [searchInputValue, setSearchInputValue] = useState("");
     const [filterDropDownValue, setFilterDropDownValue] = useState("");
 
@@ -13,24 +13,23 @@ export default function Search() {
         setFilterDropDownValue(e.target.value);
     }
 
-
     // when user types in the search this filter 
     // should be activated and display results instantly
     useEffect(() => {
         if (searchInputValue === "") {
-            setFilteredPlants(allPlants);
+            setFilteredPlants(plantList);
         } else {
             const filteredPlantsFromAllPlants =
-                allPlants.filter((eachPlantBy) => {
+                plantList.filter((eachPlantBy) => {
 
                     let filterBy;
 
                     // if by name: 
                     if (filterDropDownValue === "nickname") {
-                        filterBy = eachPlantBy.nickname.toLowerCase().includes(searchInputValue.toLowerCase());
+                        filterBy = eachPlantBy.plant.nickname.toLowerCase().includes(searchInputValue.toLowerCase());
                     } else if (filterDropDownValue === "species") {
                         // if by type:
-                        filterBy = eachPlantBy.species.toLowerCase().includes(searchInputValue.toLowerCase());
+                        filterBy = eachPlantBy.plant.species.toLowerCase().includes(searchInputValue.toLowerCase());
                     }
                     return filterBy;
                 })
@@ -41,15 +40,15 @@ export default function Search() {
 
     return (
         <div className="searchPlants">
-            <input className="searchInput" type='text' name="search" placeholder="Search Through Plants By" onChange={e => { setSearchInputValue(e.target.value) }}></input>
+            {/* <input className="searchInput" type='text' name="search" placeholder="Search Through Plants By" onChange={e => { setSearchInputValue(e.target.value) }}></input>
             <select name="filterByDropdown" id="filterByDropdown" onChange={handleDropdownChange}>
                 <option value="nickname">
-                    Plant Name
+                    Name
                 </option>
                 <option value="species">
-                    Type of Plant
+                    Species
                 </option>
-            </select>
+            </select> */}
         </div>
     )
 }
