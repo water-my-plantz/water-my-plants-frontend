@@ -75,12 +75,12 @@ export default function Signup() {
             phone_number: signUpFormValues.phone_number
         }
 
-        axiosWithAuth().post('/user/register', newUser)
+        axiosWithAuth().post('https://water-my-plants-fullstack-api.herokuapp.com/user/register', newUser)
             .then(res => {
                 localStorage.setItem('token', res.data.payload);
                 console.log("signup", res);
-                history.push('/plants');
-                setIsLoggedIn = true;
+                // history.push('/plants');
+                setIsLoggedIn(true);
 
             })
             .catch(err => {
@@ -139,7 +139,7 @@ export default function Signup() {
                         Sign Up!
                     </button>
                 </form>
-                <p onClick={() => { history.push('/login') }} className="signUpFinePrintUnderForm" >
+                <p onClick={() => { history.push('/') }} className="signUpFinePrintUnderForm" >
                     <span style={{display: "inline"}}>
                         Already Have An Account?...Login Here!
                     </span>

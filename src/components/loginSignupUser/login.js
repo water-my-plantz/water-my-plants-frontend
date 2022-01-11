@@ -37,7 +37,7 @@ export default function Login() {
 
         const user = {username: loginFormValues.username, password: loginFormValues.password}
 
-        axiosWithAuth().post('/user/login', user)
+        axiosWithAuth().post('https://water-my-plants-fullstack-api.herokuapp.com/user/login', user)
             .then(res => {
                 localStorage.setItem('token', res.data.payload);
                 console.log("login", res);

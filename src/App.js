@@ -40,7 +40,7 @@ const initialFakePlantData = [
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [allPlants, setAllPlants] = useState(initialFakePlantData);
+  const [allPlants, setAllPlants] = useState([]);
   const [isFetchingPlants, setIsFetchingPlants] = useState(false);
   const [filteredPlants, setFilteredPlants] = useState([]);
   const [hamburgerState, setHamburgerState] = useState(false);
