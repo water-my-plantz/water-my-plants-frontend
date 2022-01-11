@@ -79,9 +79,8 @@ export default function Signup() {
             .then(res => {
                 localStorage.setItem('token', res.data.payload);
                 console.log("signup", res);
-                // history.push('/plants');
+                history.push('/plants');
                 setIsLoggedIn(true);
-
             })
             .catch(err => {
                 console.log(err);
