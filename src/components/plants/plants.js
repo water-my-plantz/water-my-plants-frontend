@@ -33,13 +33,6 @@ useEffect(() => {
         <div>
             <Search />
             <div className="CardSection">
-
-            {plantList.map((plant, i) => (
-					<div key={i}>
-						<Plant plant={plant} />
-					</div>
-				))}
-
                 {isFetchingPlants ? "Loading Plants..." :
                     filteredPlants.map((eachPlant) => (
                         <Plant plant={eachPlant} key={eachPlant.id} />
