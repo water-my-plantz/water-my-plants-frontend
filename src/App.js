@@ -66,28 +66,12 @@ useEffect(() => {
           <Switch>
           <Route path="/signup" component={Signup} />
           <Route exact path="/" component={Login} />
-          <PrivateRoute exact path='/profile/:username' component={Profile}/>
+          <PrivateRoute exact path='/profile' component={Profile}/>
           <PrivateRoute path="/plants" component={Plants} />
           <PrivateRoute path="/createplant" component={CreatePlant} />
           <PrivateRoute path="/logout" component={Logout} />
           <PrivateRoute path="/editplant/:id" component={EditPlant} />
           </Switch>
-{/* 
-          <Routes>
-            <Route path='/signup' element={<Signup/>}/>
-            <Route path='/login' element={<Login/>}/>
-            
-            <PrivateRoute exact path='/profile' element={Profile}/>
-            <PrivateRoute exact path='/plants' element={Plants}/>
-            <PrivateRoute exact path='/createplant' element={CreatePlant}/>
-            <PrivateRoute exact path='/editplant/:id' element={EditPlant}/> */}
-            {/* <Route exact path='/' element={<PrivateRoute/>}>
-              <Route path='/profile' element={<Profile/>}/>
-              <Route path='/plants' element={<Plants/>}/>
-              <Route path='/createplant' element={<CreatePlant/>}/>
-              <Route path='/editplant/:id' element={<EditPlant/>}/>
-            </Route> */}
-          {/* </Routes> */}
         </GlobalPropsContext.Provider>
       </div>
       </Fragment>
