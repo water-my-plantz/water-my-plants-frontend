@@ -27,22 +27,12 @@ export default function EditPlant() {
             .get(`https://water-my-plants-fullstack-api.herokuapp.com/plants/${id}`)
             .then((res) => {
                 setPlantInfo(res.data);
-                setPlantFormValues({ nickname: plantInfo.nickname, species: plantInfo.species, water_frequency: plantInfo.water_frequency });
-                console.log(res.data)
-
+                setPlantFormValues(res.data);
             })
             .catch((error) => {
                 console.error(error);
             });
-    }, []);
-
-    useEffect(() => {
-        setPlantFormValues(plantInfo);
-    }, [plantInfo]);
-    console.log('plantInfo',plantInfo)
-
-
-
+    }, [id]);
 
 	// const [createPlantErrors, setCreatePlantErrors] = useState(
 	// 	initialCreatePlantFormErrors,
@@ -70,9 +60,8 @@ export default function EditPlant() {
             [name]: e.target.value,
         };
         setPlantFormValues(newPlantFormValues);
-        
-        console.log()
-    };
+        console.log('pfv', plantFormValues);
+        };
 
     const handleFileChange = (e) => {
         setPlantImg(null);
@@ -130,10 +119,10 @@ export default function EditPlant() {
                 <h1>Edit Your Plant!</h1>
                 <input
                     placeholder="Plant Name"
-                    name="name"
-                    label="name"
+                    name="nickname"
+                    label="nickname"
                     type="text"
-                    id="name"
+                    id="nickname"
                     onChange={onChange}
                     value={plantFormValues.nickname}
                 />
