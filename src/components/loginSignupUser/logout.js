@@ -10,7 +10,7 @@ const Logout = () => {
 
     useEffect(()=> {
     console.log('log out');
-    localStorage.removeItem('username');
+    localStorage.removeItem('user');
     localStorage.removeItem('token');
     window.location.pathname = '/';
     setIsLoggedIn(false);

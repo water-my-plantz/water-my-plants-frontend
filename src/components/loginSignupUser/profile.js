@@ -17,6 +17,7 @@ export default function Profile() {
   const [userInfo, setUserInfo] = useState(fakeUserInfo);
   const { isLoading, setIsLoading } = useContext(GlobalPropsContext);
   const [userId, setUserId] = useState(userInfo?.user_id);
+  const user = localStorage.getItem('user')
 
     const params = useParams();
     // use axios to get user info to display in form
@@ -59,8 +60,9 @@ export default function Profile() {
 
   return (
     <div>
-      <h2>username </h2>
-      <input
+      <h2>Your username is: <span style={{color: '#4ca7f1'}}>{user}</span></h2>
+      
+      {/* <input
           placeholder="username"
           name="username"
           label="username"
@@ -68,8 +70,8 @@ export default function Profile() {
           id="username"
           onChange={onChange}
           value={userInfo.username}
-      />
-      <h2>password </h2>
+      /> */}
+      {/* <h2>password </h2>
       <input
           placeholder="password"
           name="password"
@@ -100,7 +102,7 @@ export default function Profile() {
           value={userInfo.phoneNumber}
       />
       <br/><br/>
-      <button type="submit">Save Changes</button>
+      <button type="submit">Save Changes</button> */}
     </div>
   )
 }

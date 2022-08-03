@@ -10,12 +10,17 @@ export default function Login() {
     const [loginFormValues, setLogInFormValues] = useState(
         initialLogInFormValues
     );
-    const { isLoggedIn, setIsLoggedIn, user, setUser } =
+    const { isLoggedIn, setIsLoggedIn } =
         useContext(GlobalPropsContext);
     const [loginError, setLoginError] = useState(false);
 
-    // let navigate = useNavigate();
     let history = useHistory();
+
+    useEffect(() => {
+        if (isLoggedIn) {
+            history.push("/plants");
+        }
+    } , [isLoggedIn]);
 
     const onChange = (e) => {
         setLogInFormValues({
@@ -38,6 +43,9 @@ export default function Login() {
             )
             .then((res) => {
                 localStorage.setItem("token", res.data.token);
+                const message = res.data.message.split(" ");
+                const user = message[2];
+                localStorage.setItem("user", user);
                 console.log("login", res);
                 history.push("/plants");
                 setIsLoggedIn(true);
