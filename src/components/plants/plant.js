@@ -30,6 +30,7 @@ export default function Plant({plant}) {
         axios
 				.delete(`https://water-my-plants-fullstack-api.herokuapp.com/plants/${plantId}`) // Endpoint to get all plants in Database
 				.then((res) => {
+                    window.location.reload();
 					// getPlantList(res.data);
 				})
 				.catch((err) => {
