@@ -1,12 +1,10 @@
-// 1. `user` can sign-up / create an account by providing a unique `username`, a valid mobile `phoneNumber` and a `password`.
-
 import "../../App.css"
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { useHistory, Redirect } from "react-router-dom";
 import { GlobalPropsContext } from '../GlobalPropsContext'
 import { axiosWithAuth } from '../../utils/axiosWithAuth'
-import signupFormSchema from "../../validation/signupFormSchema.js";
-import * as yup from 'yup'
+// import signupFormSchema from "../../validation/signupFormSchema.js";
+// import * as yup from 'yup'
 
 
 
@@ -19,11 +17,11 @@ const initialsignUpFormValues = {
     retypePassword: '',
 }
 
-const initialSignUpFormErrors = {
-    username: '',
-    phone_number: '',
-    password: '',
-}
+// const initialSignUpFormErrors = {
+//     username: '',
+//     phone_number: '',
+//     password: '',
+// }
 
 
 // submit is disabled until inputs validated
@@ -40,7 +38,7 @@ export default function Signup() {
 
     // controls the form input changes via state
     const onChange = (e) => {
-        const { name, value } = e.target;
+        // const { name, value } = e.target;
         //validation
     //     yup
     //     .reach(signupFormSchema, name)

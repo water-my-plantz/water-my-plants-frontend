@@ -1,8 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { GlobalPropsContext } from "../GlobalPropsContext";
 import { Redirect } from "react-router-dom";
-import { axiosWithAuth } from '../../utils/axiosWithAuth'
-import axios from 'axios'
+
 
 const Logout = () => {
     const { setIsLoggedIn } = useContext(GlobalPropsContext);

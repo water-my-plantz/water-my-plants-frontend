@@ -1,25 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
+import React from "react";
+// import React, { useContext, useEffect, useState } from "react";
+// import axios from "axios";
+// import { useParams } from "react-router-dom";
 // import * as yup from 'yup'
-import { GlobalPropsContext } from '../GlobalPropsContext'
+// import { GlobalPropsContext } from '../GlobalPropsContext'
 import "../../App.css"
 
-const fakeUserInfo =   {
-  username: "user",
-  password: "pass",
-  phoneNumber: "123-456-7890"
-}
-
-
 export default function Profile() {
-
-  const [userInfo, setUserInfo] = useState(fakeUserInfo);
-  const { isLoading, setIsLoading } = useContext(GlobalPropsContext);
-  const [userId, setUserId] = useState(userInfo?.user_id);
+  // const [userInfo, setUserInfo] = useState({});
+  // const { isLoading, setIsLoading } = useContext(GlobalPropsContext);
+  // const [userId, setUserId] = useState(userInfo?.user_id);
   const user = localStorage.getItem('user')
 
-    const params = useParams();
+    // const params = useParams();
     // use axios to get user info to display in form
     // useEffect(() => {
     //     axios
@@ -33,11 +26,11 @@ export default function Profile() {
     // }, [params]);
 
 
-  const onChange = (e) => {
-    setUserInfo({
-        ...userInfo, [e.target.name]: e.target.value
-    })
-}
+//   const onChange = (e) => {
+//     setUserInfo({
+//         ...userInfo, [e.target.name]: e.target.value
+//     })
+// }
   //   const editUserSubmitHandler = (e) => {
   //     e.preventDefault();
   //     setIsLoading(true);
@@ -61,7 +54,6 @@ export default function Profile() {
   return (
     <div>
       <h2>Your username is: <span style={{color: '#4ca7f1'}}>{user}</span></h2>
-      
       {/* <input
           placeholder="username"
           name="username"

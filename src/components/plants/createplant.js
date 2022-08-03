@@ -43,7 +43,6 @@ export default function CreatePlant() {
     const [createDisabled, setCreateDisabled] = useState(
         initialCreateButtonDisabled
     );
-    const [testObj, setTestObj] = useState(testObjValues);
     const [plantImg, setPlantImg] = useState(null);
     const [plantImgError, setPlantImgError] = useState(null);
 
@@ -97,7 +96,6 @@ export default function CreatePlant() {
 
     const createPlantSubmitHandler = (e) => {
         e.preventDefault();
-        // console.log(plantFormValues)
 
         const plant = {
             nickname: plantFormValues.nickname,
@@ -170,5 +168,3 @@ export default function CreatePlant() {
         </div>
     );
 }
-
-// make sure punch pass is an option for createClass

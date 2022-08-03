@@ -7,7 +7,7 @@ import { GlobalPropsContext } from '../GlobalPropsContext'
 import "../../App.css"
 // import plantFormSchema from "../../validation/plantFormSchema.js";
 
-const initialCreateButtonDisabled = true;
+// const initialCreateButtonDisabled = true;
 
 
 export default function EditPlant() {
