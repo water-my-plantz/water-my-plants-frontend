@@ -43,7 +43,7 @@ export default function Login() {
             )
             .then((res) => {
                 localStorage.setItem("token", res.data.token);
-                localStorage.setItem("user", res.data.user);
+                localStorage.setItem("user", res.data.username);
                 localStorage.setItem("id", res.data.id);
                 console.log("login", res);
                 history.push("/plants");
