@@ -16,6 +16,7 @@ const initialCreatePlantFormValues = {
     nickname: "",
     species: "",
     water_frequency: "",
+    image: "",
 };
 
 const initialCreatePlantFormErrors = {
@@ -43,8 +44,8 @@ export default function CreatePlant() {
     const [createDisabled, setCreateDisabled] = useState(
         initialCreateButtonDisabled
     );
-    const [plantImg, setPlantImg] = useState(null);
-    const [plantImgError, setPlantImgError] = useState(null);
+    // const [plantImg, setPlantImg] = useState(null);
+    // const [plantImgError, setPlantImgError] = useState(null);
 
     const onChange = (e) => {
         const { name, value } = e.target;
@@ -67,25 +68,25 @@ export default function CreatePlant() {
         });
     };
 
-    const handleFileChange = (e) => {
-        setPlantImg(null);
-        let selected = e.target.files[0];
-        console.log(selected);
-        if (!selected) {
-            setPlantImgError("please select an image file");
-            return;
-        }
-        if (!selected.type.includes("image")) {
-            setPlantImgError("please select an image file");
-            return;
-        }
-        if (selected.size > 1000000) {
-            setPlantImgError("file size is too large, 100kb max");
-            return;
-        }
-        setPlantImgError(null);
-        setPlantImg(selected);
-    };
+    // const handleFileChange = (e) => {
+    //     setPlantImg(null);
+    //     let selected = e.target.files[0];
+    //     console.log(selected);
+    //     if (!selected) {
+    //         setPlantImgError("please select an image file");
+    //         return;
+    //     }
+    //     if (!selected.type.includes("image")) {
+    //         setPlantImgError("please select an image file");
+    //         return;
+    //     }
+    //     if (selected.size > 1000000) {
+    //         setPlantImgError("file size is too large, 100kb max");
+    //         return;
+    //     }
+    //     setPlantImgError(null);
+    //     setPlantImg(selected);
+    // };
 
     //ENABLE BUTTON WHEN NO ERRORS EXIST
     useEffect(() => {
@@ -101,7 +102,7 @@ export default function CreatePlant() {
             nickname: plantFormValues.nickname,
             species: plantFormValues.species,
             water_frequency: plantFormValues.water_frequency,
-            image: plantImg,
+            image: plantFormValues.image,
         };
         console.log('plant',plant);
 
@@ -152,8 +153,17 @@ export default function CreatePlant() {
                     onChange={onChange}
                     value={plantFormValues.water_frequency}
                 />
-                <input type="file" required onChange={handleFileChange} />
-                {plantImgError && <div className="error">{plantImgError}</div>}
+                <input
+                    placeholder="Plant Img Url"
+                    name="image"
+                    label="image"
+                    type="text"
+                    id="image"
+                    onChange={onChange}
+                    value={plantFormValues.image}
+                />
+                {/* <input type="file" required onChange={handleFileChange} /> */}
+                {/* {plantImgError && <div className="error">{plantImgError}</div>} */}
                 {/* RENDER THE VALIDATION ERRORS HERE */}
                 <div className="formErrors">
                     <div>{createPlantErrors.nickname}</div>
