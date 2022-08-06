@@ -11,6 +11,7 @@ const Logout = () => {
     console.log('log out');
     localStorage.removeItem('user');
     localStorage.removeItem('token');
+    localStorage.removeItem('id');
     window.location.pathname = '/';
     setIsLoggedIn(false);
     <Redirect to="/" />;

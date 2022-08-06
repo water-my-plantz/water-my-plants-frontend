@@ -75,8 +75,9 @@ export default function Signup() {
 
         axiosWithAuth().post('https://water-my-plants-fullstack-api.herokuapp.com/user/register', newUser)
             .then(res => {
-                localStorage.setItem('token', res.data.id);
+                localStorage.setItem('id', res.data.id);
                 localStorage.setItem("user", res.data.username);
+                localStorage.setItem("token", res.data.token);
                 console.log("signup", res);
                 history.push('/plants');
                 setIsLoggedIn(true);

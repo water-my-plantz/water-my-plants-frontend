@@ -43,9 +43,8 @@ export default function Login() {
             )
             .then((res) => {
                 localStorage.setItem("token", res.data.token);
-                const message = res.data.message.split(" ");
-                const user = message[2];
-                localStorage.setItem("user", user);
+                localStorage.setItem("user", res.data.user);
+                localStorage.setItem("id", res.data.id);
                 console.log("login", res);
                 history.push("/plants");
                 setIsLoggedIn(true);
