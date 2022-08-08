@@ -171,7 +171,7 @@ export default function CreatePlant() {
                     <div>{createPlantErrors.water_frequency}</div>
                 </div>
 
-                <button type="submit" disabled={createDisabled}>
+                <button className='createButton' type="submit" disabled={createDisabled}>
                     SUBMIT
                 </button>
             </form>

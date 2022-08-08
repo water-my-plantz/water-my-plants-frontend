@@ -27,10 +27,11 @@ export default function NavBar() {
     useEffect(() => {
         if (width > 525) {
             setNavState(true);
+            setHamburgerState(false);
         }
         if (width < 525) {
             setNavState(false);
-            setHamburgerState(false);
+            setHamburgerState(true);
         }
     }, [width])
 

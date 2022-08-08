@@ -16,7 +16,7 @@ export default function NavBarContents() {
                         <h3>Water My Plants</h3>
                     </div>
 
-                    <Search />
+                    {(isLoggedIn === true) && <Search />}
 
                     {/* login is shown when not logged in*/}
                     {(isLoggedIn === false) && <li><Link to="/">Login</Link></li>}
