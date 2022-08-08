@@ -104,7 +104,7 @@ export default function CreatePlant() {
             water_frequency: plantFormValues.water_frequency,
             image: plantFormValues.image,
         };
-        console.log('plant',plant);
+        console.log('plant', plant);
 
         axios
             .post(
@@ -124,9 +124,9 @@ export default function CreatePlant() {
     return (
         <div>
             <form onSubmit={createPlantSubmitHandler} className="form">
-                <h1>Create a Plant!</h1>
+                <h2 class="create-h2" >Create a plant!</h2>
                 <input
-                    placeholder="Plant Name"
+                    placeholder="Plant Name*"
                     name="nickname"
                     label="nickname"
                     type="text"
@@ -135,7 +135,7 @@ export default function CreatePlant() {
                     value={plantFormValues.nickname}
                 />
                 <input
-                    placeholder="Species"
+                    placeholder="Species*"
                     name="species"
                     label="species"
                     type="text"
@@ -145,7 +145,7 @@ export default function CreatePlant() {
                 />
 
                 <input
-                    placeholder="Watering Frequency"
+                    placeholder="Watering Frequency*"
                     name="water_frequency"
                     label="water_frequency"
                     type="text"
@@ -154,7 +154,7 @@ export default function CreatePlant() {
                     value={plantFormValues.water_frequency}
                 />
                 <input
-                    placeholder="Plant Img Url"
+                    placeholder="Plant Image Url*"
                     name="image"
                     label="image"
                     type="text"
@@ -172,7 +172,7 @@ export default function CreatePlant() {
                 </div>
 
                 <button type="submit" disabled={createDisabled}>
-                    Create a Plant!
+                    SUBMIT
                 </button>
             </form>
         </div>

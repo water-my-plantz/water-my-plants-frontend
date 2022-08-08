@@ -37,13 +37,16 @@ export default function NavBar() {
     }, [width])
 
     return (
-        <div className="navBar">
-            <Hamburger hamburgerState={hamburgerState} setHamburgerState={setHamburgerState} />
-
-            <a href="/plants">
-            <h1 className="titleOfApp" >Water My Plants</h1>
-            </a>
-            {(navState || hamburgerState) && < NavBarContents />}
-        </div>
+        <>
+            <div className="navBar">
+                <Hamburger hamburgerState={hamburgerState} setHamburgerState={setHamburgerState} />
+                {(navState || hamburgerState) && <NavBarContents />}
+            </div>
+            <div className="header">
+                <a href="/plants">
+                    <h1 className="titleOfApp" >Water My Plants</h1>
+                </a>
+            </div>
+        </>
     )
 }

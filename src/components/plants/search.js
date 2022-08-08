@@ -44,19 +44,19 @@ export default function Search() {
                 className="searchInput"
                 type="text"
                 name="search"
-                placeholder="Search Through Plants By"
+                placeholder="Search..."
                 onChange={(e) => {
                     setSearchInputValue(e.target.value);
                 }}
             ></input>
-            <select
+            {/* <select
                 name="filterByDropdown"
                 id="filterByDropdown"
                 onChange={handleDropdownChange}
             >
                 <option value="nickname">Name</option>
                 <option value="species">Species</option>
-            </select>
+            </select> */}
         </div>
     );
 }

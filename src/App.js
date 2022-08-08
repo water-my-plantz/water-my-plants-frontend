@@ -46,34 +46,35 @@ function App() {
   const [filteredPlants, setFilteredPlants] = useState([]);
   const [hamburgerState, setHamburgerState] = useState(false);
   const [navState, setNavState] = useState(false)
-  
-useEffect(() => {
-  if (localStorage.getItem('token')) {
-    setIsLoggedIn(true)  
-  } else {
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      setIsLoggedIn(true)
+    } else {
       return <Redirect to='/' />
     }
-},[])
+  }, [])
 
   return (
     <Router>
       <Fragment>
-      <div className="App">
-        <GlobalPropsContext.Provider value={{ isLoggedIn, setIsLoggedIn, allPlants, setAllPlants, plantList, setPlantList, isFetchingPlants, setIsFetchingPlants, setFilteredPlants, filteredPlants, hamburgerState, setHamburgerState, navState, setNavState }}>
+        <div className="App">
+          <div class="overlay"></div>
+          <GlobalPropsContext.Provider value={{ isLoggedIn, setIsLoggedIn, allPlants, setAllPlants, plantList, setPlantList, isFetchingPlants, setIsFetchingPlants, setFilteredPlants, filteredPlants, hamburgerState, setHamburgerState, navState, setNavState }}>
 
-          <NavBar />
+            <NavBar />
 
-          <Switch>
-          <Route path="/signup" component={Signup} />
-          <Route exact path="/" component={Login} />
-          <PrivateRoute exact path='/profile' component={Profile}/>
-          <PrivateRoute path="/plants" component={Plants} />
-          <PrivateRoute path="/createplant" component={CreatePlant} />
-          <PrivateRoute path="/logout" component={Logout} />
-          <PrivateRoute path="/editplant/:id" component={EditPlant} />
-          </Switch>
-        </GlobalPropsContext.Provider>
-      </div>
+            <Switch>
+              <Route path="/signup" component={Signup} />
+              <Route exact path="/" component={Login} />
+              <PrivateRoute exact path='/profile' component={Profile} />
+              <PrivateRoute path="/plants" component={Plants} />
+              <PrivateRoute path="/createplant" component={CreatePlant} />
+              <PrivateRoute path="/logout" component={Logout} />
+              <PrivateRoute path="/editplant/:id" component={EditPlant} />
+            </Switch>
+          </GlobalPropsContext.Provider>
+        </div>
       </Fragment>
     </Router>
   );
