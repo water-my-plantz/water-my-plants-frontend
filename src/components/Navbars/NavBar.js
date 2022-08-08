@@ -5,7 +5,6 @@ import NavBarContents from "./NavBarContents";
 import { GlobalPropsContext } from "../GlobalPropsContext";
 import { Link } from "react-router-dom";
 
-
 // custom hook for getting window size
 function useWindowSize() {
     const [width, setWidth] = useState([window.innerWidth]);
@@ -16,9 +15,7 @@ function useWindowSize() {
         }
         window.addEventListener("resize", handleResize);
     }, [])
-
     return width;
-
 }
 
 export default function NavBar() {
@@ -26,6 +23,7 @@ export default function NavBar() {
     const { navState, setNavState } = useContext(GlobalPropsContext);
     const [width] = useWindowSize();
 
+    // 525
     useEffect(() => {
         if (width > 525) {
             setNavState(true);
@@ -43,9 +41,7 @@ export default function NavBar() {
                 {(navState || hamburgerState) && <NavBarContents />}
             </div>
             <div className="header">
-                <a href="/plants">
-                    <h1 className="titleOfApp" >Water My Plants</h1>
-                </a>
+                <h1 className="titleOfApp">Water My Plants</h1>
             </div>
         </>
     )
