@@ -64,6 +64,7 @@ h1 {
   letter-spacing: 0.05em;
   word-spacing: .5rem;
   text-shadow: 6px 6px 4px #0a0909;
+  margin: 1rem;
 }
 
 
@@ -77,7 +78,7 @@ h1 {
   .navBar {
     /* display: flex; */
     /* border: solid rgb(168, 9, 9); */
-    background: linear-gradient(to right, rgb(80, 110, 81), rgba(48, 116, 78, 0.973));
+    background: linear-gradient(to right, rgba(80, 110, 81, 0.991), rgba(48, 116, 78, 0.973));
     padding: 1rem;
     margin-bottom: 2rem;
     height: 60px;
