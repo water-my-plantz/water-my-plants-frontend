@@ -48,6 +48,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: rage;
 }
 
 .header {
@@ -59,7 +60,7 @@ p {
 }
 
 h1 {
-  font-family: rage;
+  font-family: inter;
   color: #fcfff9;
   font-size: 3.5rem;
   letter-spacing: 0.05em;
@@ -207,6 +208,17 @@ label {
 
   /* ___ Navbar ___ */
 
+  .not-logged-in {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: right;
+    font-size: 1rem;
+    color: #000000;
+    min-width: 100px;
+    margin-bottom: 20px;
+    margin-left: 60%;
+  }
   .navBar {
     background: linear-gradient(to right, rgba(80, 110, 81, 0.991), rgba(48, 116, 78, 0.973));
     padding: 1rem;
@@ -217,7 +229,7 @@ label {
   .nav-water-my-plants-text {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
   }
 
   h3 {
@@ -225,6 +237,7 @@ label {
     letter-spacing: 0.05em;
     min-width: 200px;
     font-size: 1.6 rem;
+    font-family: inter;
   }
 
   ul {
@@ -234,6 +247,9 @@ label {
     justify-content: space-around;
   }
 
+  li {
+    margin-left: 24px;
+  }
   /* was li, a */
   a {
     color: #ffffff;
@@ -249,8 +265,8 @@ label {
     flex-flow: row nowrap;
     flex-direction: row;
     justify-content: space-between;
-    width: 50%;
-    margin-left: 50%;
+    width: 60%;
+    margin-left: 40%;
     text-align: right;
     font-size: 1rem;
     color: #000000;
@@ -268,7 +284,17 @@ label {
     margin-bottom: 2rem;
     height: 60px;
   }
-
+  .not-logged-in {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: right;
+    font-size: 1rem;
+    color: #000000;
+    min-width: 100px;
+    margin-bottom: 20px;
+    margin-left: 40%;
+  }
   .nav-water-my-plants-text {
     display: flex;
     justify-content: center;
@@ -288,7 +314,9 @@ label {
     flex-direction: center;
     justify-content: space-around;
   }
-
+  li {
+    margin-left: 24px;
+  }
   a {
     color: #ffffff;
     font-size: 1.2rem;
@@ -303,8 +331,8 @@ label {
     flex-flow: row nowrap;
     flex-direction: row;
     justify-content: space-between;
-    width: 60%;
-    margin-left: 24%;
+    width: 76%;
+    margin-left: 10%;
     text-align: right;
     font-size: 1rem;
     color: #000000;
@@ -326,6 +354,21 @@ label {
 
   .nav-water-my-plants-text {
     display: none;
+  }
+
+  .not-logged-in {
+    justify-self: center;
+    display: flex;
+    flex-flow: row nowrap;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 60%;
+    text-align: right;
+    font-size: 1rem;
+    color: #000000;
+    min-width: 100px;
+    width: 100%;
+    margin-bottom: 20px;
   }
 
   .nav-links {
@@ -361,6 +404,7 @@ label {
     font-size: 2.3rem;
     margin-top: 30px;
     margin-bottom: 20px;
+    font-family: rage;
   }
 
 }

@@ -2,6 +2,7 @@ import { useContext } from "react"
 import "../../App.css"
 import { Link } from "react-router-dom";
 import { GlobalPropsContext } from "../GlobalPropsContext";
+import Search from "../plants/search";
 
 export default function NavBarContents() {
     const { isLoggedIn } = useContext(GlobalPropsContext);
@@ -15,24 +16,21 @@ export default function NavBarContents() {
                         <h3>Water My Plants</h3>
                     </div>
 
-                    {/* login is shown when not logged in*/}
-                    {(isLoggedIn === false) && <li><Link to="/">Login</Link></li>}
-                    {/* signup not shown when loggedin */}
-                    {(isLoggedIn === false) && <li><Link to="/signup">Signup</Link> </li>}
+                    {(isLoggedIn === false) && <div className="not-logged-in">
+                    <li><Link to="/">Login</Link></li>
+                    <li><Link to="/signup">Signup</Link> </li>
+                    </div>}
 
+                    
+
+                    {(isLoggedIn === true) &&
                     <span className="nav-links">
-                    {/* account is shown when logged in */}
-                    {/* {(isLoggedIn === true) && <li><Link to="/profile">Profile </Link> </li>} */}
-
-                    {/* plants is shown when logged in */}
-                    {(isLoggedIn === true) && <li><Link to="/plants">Plant Collection</Link> </li>}
-
-                    {/* account is shown when logged in */}
-                    {(isLoggedIn === true) && <li><Link to="/createplant">Add a Plant</Link> </li>}
-
-                    {/* logout shown when loggedin */}
-                    {(isLoggedIn === true) && <li><Link to="/logout">Logout </Link> </li>}
-                    </span>
+                        <li><Search/></li>
+                    {/* <li><Link to="/profile">Profile </Link> </li> */}
+                        <li><Link to="/plants">Plant Collection</Link></li>
+                        <li><Link to="/createplant">Add a Plant</Link> </li>
+                        <li><Link to="/logout">Logout </Link> </li>
+                    </span>}
 
                 </ul>
             </nav>

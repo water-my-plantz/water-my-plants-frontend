@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import "../../App.css";
 import { GlobalPropsContext } from "../GlobalPropsContext";
+import { useHistory } from "react-router-dom";
 
 export default function Search() {
     const { setFilteredPlants, plantList } = useContext(GlobalPropsContext);
     const [searchInputValue, setSearchInputValue] = useState("");
     const [filterDropDownValue, setFilterDropDownValue] = useState("nickname");
+    const history = useHistory()
 
     // const handleDropdownChange = (e) => {
     //     setFilterDropDownValue(e.target.value);
@@ -46,6 +48,7 @@ export default function Search() {
                 name="search"
                 placeholder="Search..."
                 onChange={(e) => {
+                    history.push("/plants");
                     setSearchInputValue(e.target.value);
                 }}
             ></input>
