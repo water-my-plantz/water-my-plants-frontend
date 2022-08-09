@@ -1,15 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import "../../App.css";
 import { GlobalPropsContext } from "../GlobalPropsContext";
+import { useHistory } from "react-router-dom";
 
 export default function Search() {
     const { setFilteredPlants, plantList } = useContext(GlobalPropsContext);
     const [searchInputValue, setSearchInputValue] = useState("");
     const [filterDropDownValue, setFilterDropDownValue] = useState("nickname");
+    const history = useHistory()
 
-    const handleDropdownChange = (e) => {
-        setFilterDropDownValue(e.target.value);
-    };
+    // const handleDropdownChange = (e) => {
+    //     setFilterDropDownValue(e.target.value);
+    // };
 
     // when user types in the search this filter
     // should be activated and display results instantly
@@ -44,19 +46,20 @@ export default function Search() {
                 className="searchInput"
                 type="text"
                 name="search"
-                placeholder="Search Through Plants By"
+                placeholder="Search..."
                 onChange={(e) => {
+                    history.push("/plants");
                     setSearchInputValue(e.target.value);
                 }}
             ></input>
-            <select
+            {/* <select
                 name="filterByDropdown"
                 id="filterByDropdown"
                 onChange={handleDropdownChange}
             >
                 <option value="nickname">Name</option>
                 <option value="species">Species</option>
-            </select>
+            </select> */}
         </div>
     );
 }

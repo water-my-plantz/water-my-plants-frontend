@@ -3,8 +3,6 @@ import "../../App.css"
 import Hamburger from "./Hamburger";
 import NavBarContents from "./NavBarContents";
 import { GlobalPropsContext } from "../GlobalPropsContext";
-import { Link } from "react-router-dom";
-
 
 // custom hook for getting window size
 function useWindowSize() {
@@ -16,9 +14,7 @@ function useWindowSize() {
         }
         window.addEventListener("resize", handleResize);
     }, [])
-
     return width;
-
 }
 
 export default function NavBar() {
@@ -27,23 +23,29 @@ export default function NavBar() {
     const [width] = useWindowSize();
 
     useEffect(() => {
-        if (width > 525) {
+        if (width > 767) {
             setNavState(true);
-        }
-        if (width < 525) {
-            setNavState(false);
             setHamburgerState(false);
+        }
+        if (width < 767) {
+            setNavState(false);
+            setHamburgerState(true);
         }
     }, [width])
 
     return (
-        <div className="navBar">
+        <>
+            <div className="nav-bar">
+            <div className="navBar">
+                {/* <Hamburger hamburgerState={hamburgerState} setHamburgerState={setHamburgerState} /> */}
+                {(navState) && <NavBarContents />}
+            </div>
+            <div className="header">
             <Hamburger hamburgerState={hamburgerState} setHamburgerState={setHamburgerState} />
-
-            <a href="/plants">
-            <h1 className="titleOfApp" >Water My Plants</h1>
-            </a>
-            {(navState || hamburgerState) && < NavBarContents />}
-        </div>
+                <h1 className="titleOfApp">Water My Plants</h1>                 
+            </div>
+            {(hamburgerState) && <NavBarContents />}
+            </div>
+        </>
     )
 }

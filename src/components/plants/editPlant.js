@@ -17,8 +17,6 @@ export default function EditPlant() {
     const params = useParams();
     const { id } = params
     const [plantId, setPlantId] = useState(plantInfo?.plant_id);
-    const [plantImg, setPlantImg] = useState(null);
-    const [plantImgError, setPlantImgError] = useState(null);
 
 
     // use axios to get plant info to display in form
@@ -63,25 +61,6 @@ export default function EditPlant() {
         console.log('pfv', plantFormValues);
         };
 
-    const handleFileChange = (e) => {
-        setPlantImg(null);
-        let selected = e.target.files[0];
-        console.log(selected);
-        if (!selected) {
-            setPlantImgError("please select an image file");
-            return;
-        }
-        if (!selected.type.includes("image")) {
-            setPlantImgError("please select an image file");
-            return;
-        }
-        if (selected.size > 1000000) {
-            setPlantImgError("file size is too large, 100kb max");
-            return;
-        }
-        setPlantImgError(null);
-        setPlantImg(selected);
-    };
 
 	//ENABLE BUTTON WHEN NO ERRORS EXIST
 	// useEffect(() => {
@@ -97,7 +76,7 @@ export default function EditPlant() {
         axios.put(
             `https://water-my-plants-fullstack-api.herokuapp.com/plants/${id}`,
             {
-                nickname: plantInfo.nickname, species: plantInfo.species, water_frequency: plantInfo.water_frequency, image: plantImg,
+                nickname: plantInfo.nickname, species: plantInfo.species, water_frequency: plantInfo.water_frequency, image: plantInfo.image,
             },
         )
             .then((res) => {
@@ -145,8 +124,15 @@ export default function EditPlant() {
                     onChange={onChange}
                     value={plantFormValues.water_frequency}
                 />
-                <input type="file" required onChange={handleFileChange} />
-                {plantImgError && <div className="error">{plantImgError}</div>}
+                <input
+                    placeholder="Plant Image Url*"
+                    name="image"
+                    label="image"
+                    type="text"
+                    id="image"
+                    onChange={onChange}
+                    value={plantFormValues.image}
+                />
                 <button 
                 type="submit"
                 // disabled={createDisabled}

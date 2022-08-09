@@ -1,9 +1,3 @@
-// - `id`: Integer
-// - `nickname`: String
-// - `species` : String
-// - `water_frequency`: Type determined by implementation
-// - `image`: (optional)
-
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import * as yup from "yup";
@@ -25,11 +19,8 @@ const initialCreatePlantFormErrors = {
     water_frequency: "",
 };
 
-const initialCreateButtonDisabled = false; //CHANGE TO TRUEY
+const initialCreateButtonDisabled = true; 
 
-const testObjValues = {};
-
-// const plantImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Oenanthe_crocata_kz04.jpg"
 
 export default function CreatePlant() {
     const { isLoading, setIsLoading } = useContext(GlobalPropsContext);
@@ -44,8 +35,6 @@ export default function CreatePlant() {
     const [createDisabled, setCreateDisabled] = useState(
         initialCreateButtonDisabled
     );
-    // const [plantImg, setPlantImg] = useState(null);
-    // const [plantImgError, setPlantImgError] = useState(null);
 
     const onChange = (e) => {
         const { name, value } = e.target;
@@ -68,26 +57,6 @@ export default function CreatePlant() {
         });
     };
 
-    // const handleFileChange = (e) => {
-    //     setPlantImg(null);
-    //     let selected = e.target.files[0];
-    //     console.log(selected);
-    //     if (!selected) {
-    //         setPlantImgError("please select an image file");
-    //         return;
-    //     }
-    //     if (!selected.type.includes("image")) {
-    //         setPlantImgError("please select an image file");
-    //         return;
-    //     }
-    //     if (selected.size > 1000000) {
-    //         setPlantImgError("file size is too large, 100kb max");
-    //         return;
-    //     }
-    //     setPlantImgError(null);
-    //     setPlantImg(selected);
-    // };
-
     //ENABLE BUTTON WHEN NO ERRORS EXIST
     useEffect(() => {
         plantFormSchema.isValid(plantFormValues).then((isSchemaValid) => {
@@ -104,7 +73,7 @@ export default function CreatePlant() {
             water_frequency: plantFormValues.water_frequency,
             image: plantFormValues.image,
         };
-        console.log('plant',plant);
+        console.log('plant', plant);
 
         axios
             .post(
@@ -124,9 +93,9 @@ export default function CreatePlant() {
     return (
         <div>
             <form onSubmit={createPlantSubmitHandler} className="form">
-                <h1>Create a Plant!</h1>
+                <h2 class="create-h2" >Create a plant!</h2>
                 <input
-                    placeholder="Plant Name"
+                    placeholder="Plant Name*"
                     name="nickname"
                     label="nickname"
                     type="text"
@@ -135,7 +104,7 @@ export default function CreatePlant() {
                     value={plantFormValues.nickname}
                 />
                 <input
-                    placeholder="Species"
+                    placeholder="Species*"
                     name="species"
                     label="species"
                     type="text"
@@ -145,7 +114,7 @@ export default function CreatePlant() {
                 />
 
                 <input
-                    placeholder="Watering Frequency"
+                    placeholder="Watering Frequency*"
                     name="water_frequency"
                     label="water_frequency"
                     type="text"
@@ -154,7 +123,7 @@ export default function CreatePlant() {
                     value={plantFormValues.water_frequency}
                 />
                 <input
-                    placeholder="Plant Img Url"
+                    placeholder="Plant Image Url*"
                     name="image"
                     label="image"
                     type="text"
@@ -162,17 +131,15 @@ export default function CreatePlant() {
                     onChange={onChange}
                     value={plantFormValues.image}
                 />
-                {/* <input type="file" required onChange={handleFileChange} /> */}
-                {/* {plantImgError && <div className="error">{plantImgError}</div>} */}
-                {/* RENDER THE VALIDATION ERRORS HERE */}
+
                 <div className="formErrors">
                     <div>{createPlantErrors.nickname}</div>
                     <div>{createPlantErrors.species}</div>
                     <div>{createPlantErrors.water_frequency}</div>
                 </div>
 
-                <button type="submit" disabled={createDisabled}>
-                    Create a Plant!
+                <button className='createButton' type="submit" disabled={createDisabled}>
+                    SUBMIT
                 </button>
             </form>
         </div>
