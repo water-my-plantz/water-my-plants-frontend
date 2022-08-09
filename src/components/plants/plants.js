@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import "../../App.css"
-// import Search from "./search"
+import Search from "./search"
 import Plant from "./plant";
 import { GlobalPropsContext } from "../GlobalPropsContext";
 import axios from "axios";
@@ -31,7 +31,7 @@ export default function Plants() {
 
     return (
         <div>
-            {/* <Search /> */}
+            <Search />
             <div className="CardSection">
                 {isFetchingPlants ? "Loading Plants..." :
                     filteredPlants.map((eachPlant) => (

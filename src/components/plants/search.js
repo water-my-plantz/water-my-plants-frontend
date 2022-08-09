@@ -7,9 +7,9 @@ export default function Search() {
     const [searchInputValue, setSearchInputValue] = useState("");
     const [filterDropDownValue, setFilterDropDownValue] = useState("nickname");
 
-    const handleDropdownChange = (e) => {
-        setFilterDropDownValue(e.target.value);
-    };
+    // const handleDropdownChange = (e) => {
+    //     setFilterDropDownValue(e.target.value);
+    // };
 
     // when user types in the search this filter
     // should be activated and display results instantly

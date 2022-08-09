@@ -3,7 +3,6 @@ import "../../App.css"
 import Hamburger from "./Hamburger";
 import NavBarContents from "./NavBarContents";
 import { GlobalPropsContext } from "../GlobalPropsContext";
-import { Link } from "react-router-dom";
 
 // custom hook for getting window size
 function useWindowSize() {
@@ -23,13 +22,12 @@ export default function NavBar() {
     const { navState, setNavState } = useContext(GlobalPropsContext);
     const [width] = useWindowSize();
 
-    // 525
     useEffect(() => {
-        if (width > 525) {
+        if (width > 767) {
             setNavState(true);
             setHamburgerState(false);
         }
-        if (width < 525) {
+        if (width < 767) {
             setNavState(false);
             setHamburgerState(true);
         }

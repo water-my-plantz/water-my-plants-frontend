@@ -1,6 +1,5 @@
 import './App.css';
 import { useState, useEffect, Fragment } from "react"
-// import { Route, Routes } from "react-router-dom";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Logout from './components/loginSignupUser/logout';
 import Login from './components/loginSignupUser/login';
@@ -13,30 +12,6 @@ import Profile from './components/loginSignupUser/profile'
 import PrivateRoute from './components/PrivateRoute'
 import { GlobalPropsContext } from './components/GlobalPropsContext';
 import { BrowserRouter as Router } from "react-router-dom"
-
-const initialFakePlantData = [
-  {
-    id: "1",
-    nickname: "Red",
-    species: "rose",
-    h20Frequency: "2x a day",
-    img: "https://picsum.photos/200",
-  },
-  {
-    id: "2",
-    nickname: "Jack",
-    species: "cactus",
-    h20Frequency: "2x a week",
-    img: "https://picsum.photos/200",
-  },
-  {
-    id: "3",
-    nickname: "Daisy",
-    species: "daisy",
-    h20Frequency: "2x a day",
-    img: "https://picsum.photos/200",
-  },
-]
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

@@ -2,10 +2,9 @@ import { useContext } from "react"
 import "../../App.css"
 import { Link } from "react-router-dom";
 import { GlobalPropsContext } from "../GlobalPropsContext";
-import Search from "../plants/search.js"
 
 export default function NavBarContents() {
-    const { isLoggedIn, setHamburgerState } = useContext(GlobalPropsContext);
+    const { isLoggedIn } = useContext(GlobalPropsContext);
 
     return (
         <div>
@@ -16,11 +15,12 @@ export default function NavBarContents() {
                         <h3>Water My Plants</h3>
                     </div>
 
-                    {(isLoggedIn === true) && <Search />}
-
                     {/* login is shown when not logged in*/}
                     {(isLoggedIn === false) && <li><Link to="/">Login</Link></li>}
+                    {/* signup not shown when loggedin */}
+                    {(isLoggedIn === false) && <li><Link to="/signup">Signup</Link> </li>}
 
+                    <span className="nav-links">
                     {/* account is shown when logged in */}
                     {/* {(isLoggedIn === true) && <li><Link to="/profile">Profile </Link> </li>} */}
 
@@ -32,9 +32,8 @@ export default function NavBarContents() {
 
                     {/* logout shown when loggedin */}
                     {(isLoggedIn === true) && <li><Link to="/logout">Logout </Link> </li>}
+                    </span>
 
-                    {/* signup not shown when loggedin */}
-                    {(isLoggedIn === false) && <li><Link to="/signup">Signup</Link> </li>}
                 </ul>
             </nav>
         </div>

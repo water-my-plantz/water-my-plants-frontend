@@ -31,7 +31,6 @@ export default function Plant({ plant }) {
             <Link to={`/editplant/${plantId}`}>
                 <button className='plantButton'>EDIT</button>
             </Link>
-            {/* <button style={{ backgroundColor: "#efefef", color: "262d3a" }} onClick={() => { navigate.push('/editplant') }} className='plantButton'>Edit </button> */}
 
             <button onClick={handleDelete} className='plantDeleteButton'>DELETE</button>
 

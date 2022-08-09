@@ -67,87 +67,6 @@ h1 {
   margin: 1rem;
 }
 
-
-
-
-@media screen and (min-width: 1400px) {
-
-
-  /* ___ Navbar ___ */
-
-  .navBar {
-    /* display: flex; */
-    /* border: solid rgb(168, 9, 9); */
-    background: linear-gradient(to right, rgba(80, 110, 81, 0.991), rgba(48, 116, 78, 0.973));
-    padding: 1rem;
-    margin-bottom: 2rem;
-    height: 60px;
-  }
-
-  .nav-water-my-plants-text {
-    /* border: solid black; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  h3 {
-    color: white;
-    letter-spacing: 0.05em;
-    min-width: 200px;
-    font-size: 1.6 rem;
-    /* border: solid rgb(77, 75, 75); */
-  }
-
-  ul {
-    display: flex;
-    flex-flow: row nowrap;
-    flex-direction: center;
-    justify-content: space-around;
-    /* border: solid yellow; */
-    /* flex-direction: row-reverse; */
-  }
-
-  /* was li, a */
-  a {
-    /* border: solid rgb(0, 255, 115); */
-    color: #ffffff;
-    font-size: 1.2rem;
-    /* font-size: 90%; */
-    /* margin-top: .2rem; */
-    /* min-width: 100px; */
-  }
-
-  a:hover {
-    color: #0053a0;
-  }
-
-  .searchInput {
-    display: flex;
-    border: 2px solid rgba(34, 59, 27, 0.671);
-    width: 60%;
-    height: 20px;
-    text-align: center;
-    background-color: #ffffffde;
-    font-size: 1rem;
-    color: #000000;
-    padding: .8rem;
-    min-width: 100px;
-  }
-
-  .searchPlants {
-    /* border: solid blue; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 40%;
-    /* margin-top: -.1rem; */
-  }
-
-}
-
-
-
 /*  ___ Buttons ___ */
 
 .plantButton {
@@ -210,7 +129,6 @@ h1 {
 /* )___ Cards ___ */
 
 .CardSection {
-  /* border: solid yellow; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -222,22 +140,15 @@ img {
   width: 300px;
   height: 300px;
   margin: 1rem;
-  /* margin-left: 3rem; */
-  /* margin-right: 3rem; */
   object-fit: contain
 }
 
 .plantCard {
-  /* display: flex; */
   justify-content: center;
   align-items: center;
-
   margin: 3rem;
-  /* margin-top: 5rem; */
   padding: .9rem;
   border-radius: .4rem;
-  /* border: 2px solid #00491086; */
-
   box-shadow: 0px 2px 5px #000000;
   background: linear-gradient(to right, rgb(80, 110, 81), rgba(48, 116, 78, 0.973));
 }
@@ -249,13 +160,12 @@ img {
 /* ___ Hamburger ___ */
 
 label {
-  /* border: solid orange; */
   margin-top: 1rem;
 }
 
 
 .hamburger {
-  /* border: solid rgb(185, 204, 185); */
+  background: linear-gradient(to right, rgba(80, 110, 81, 0.991), rgba(48, 116, 78, 0.973));
   /* position: absolute; */
   /* right: 15px;
   top: 15px; */
@@ -264,10 +174,6 @@ label {
   width: 100%;
 }
 
-/* #hamburger {
-  margin-right: .5rem;
-  border: solid rgb(132, 0, 255);
-} */
 
 .bar1,
 .bar2,
@@ -296,17 +202,127 @@ label {
 }
 
 /* ___ Breakpoints ___ */
+@media screen and (min-width: 1120px) {
 
-@media screen and (min-width: 525px) {
+  /* ___ Navbar ___ */
+
+  .navBar {
+    background: linear-gradient(to right, rgba(80, 110, 81, 0.991), rgba(48, 116, 78, 0.973));
+    padding: 1rem;
+    margin-bottom: 2rem;
+    height: 60px;
+  }
+
+  .nav-water-my-plants-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h3 {
+    color: white;
+    letter-spacing: 0.05em;
+    min-width: 200px;
+    font-size: 1.6 rem;
+  }
+
+  ul {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-direction: center;
+    justify-content: space-around;
+  }
+
+  /* was li, a */
+  a {
+    color: #ffffff;
+    font-size: 1.2rem;
+  }
+
+  a:hover {
+    color: #0053a0;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    margin-left: 50%;
+    text-align: right;
+    font-size: 1rem;
+    color: #000000;
+    min-width: 100px;
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 1120px) {
+
+  /* ___ Navbar ___ */
+
+  .navBar {
+    background: linear-gradient(to right, rgba(80, 110, 81, 0.991), rgba(48, 116, 78, 0.973));
+    padding: 1rem;
+    margin-bottom: 2rem;
+    height: 60px;
+  }
+
+  .nav-water-my-plants-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h3 {
+    color: white;
+    letter-spacing: 0.05em;
+    min-width: 200px;
+    font-size: 1.6 rem;
+  }
+
+  ul {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-direction: center;
+    justify-content: space-around;
+  }
+
+  a {
+    color: #ffffff;
+    font-size: 1.2rem;
+  }
+
+  a:hover {
+    color: #0053a0;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+    margin-left: 24%;
+    text-align: right;
+    font-size: 1rem;
+    color: #000000;
+    min-width: 100px;
+  }
+}
+
+@media screen and (min-width: 767px) {
   .hamburger {
     display: none;
   }
 }
 
-@media screen and (max-width: 524px) {
+@media screen and (max-width: 767px) {
+  .nav-water-my-plants-text {
+    display: none;
+  }
   ul {
     flex-direction: column;
-    /* border: solid red; */
     margin-top: .6rem;
   }
 
@@ -324,29 +340,6 @@ label {
     margin-top: 30px;
     margin-bottom: 20px;
   }
-
-
-  .searchInput {
-    display: flex;
-    border: 2px solid rgba(34, 59, 27, 0.671);
-    width: 20%;
-    height: 20px;
-    text-align: center;
-    background-color: #ffffffde;
-    font-size: 1rem;
-    color: #000000;
-    padding: .7rem;
-    min-width: 100px;
-    margin: .7rem;
-  }
-
-  .searchPlants {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-
 }
 
 .searchInput {
@@ -361,7 +354,6 @@ label {
   color: #000000;
   padding: .7rem;
   min-width: 100px;
-  /* margin: -.1rem; */
 }
 
 .searchPlants {
