@@ -520,7 +520,8 @@ img {
   .hamburger {
     display: flex;
     justify-content: center;
-    width: 29px;
+    width: 27px;
+    margin-right: .5rem;
   }
 
   .header {
@@ -583,7 +584,7 @@ img {
   }
 
   .titleOfApp {
-    font-size: 180%;
+    font-size: 170%;
     margin-top: 30px;
     margin-bottom: 20px;
     font-family: rage;
