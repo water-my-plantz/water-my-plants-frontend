@@ -22,6 +22,8 @@ export default function NavBar() {
     const { navState, setNavState } = useContext(GlobalPropsContext);
     const [width] = useWindowSize();
 
+
+
     useEffect(() => {
         if (width > 767) {
             setNavState(true);
@@ -36,15 +38,15 @@ export default function NavBar() {
     return (
         <>
             <div className="nav-bar">
-            <div className="navBar">
-                {/* <Hamburger hamburgerState={hamburgerState} setHamburgerState={setHamburgerState} /> */}
-                {(navState) && <NavBarContents />}
-            </div>
-            <div className="header">
-            <Hamburger hamburgerState={hamburgerState} setHamburgerState={setHamburgerState} />
-                <h1 className="titleOfApp">Water My Plants</h1>                 
-            </div>
-            {(hamburgerState) && <NavBarContents />}
+                <div className="navBar">
+                    {/* <Hamburger hamburgerState={hamburgerState} setHamburgerState={setHamburgerState} /> */}
+                    {(navState) && <NavBarContents />}
+                </div>
+                <div className="header">
+                    <Hamburger hamburgerState={hamburgerState} setHamburgerState={setHamburgerState} />
+                    <h1 className="titleOfApp">Water My Plants</h1>
+                </div>
+                {(hamburgerState) && <NavBarContents />}
             </div>
         </>
     )

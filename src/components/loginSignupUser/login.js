@@ -20,7 +20,7 @@ export default function Login() {
         if (isLoggedIn) {
             history.push("/plants");
         }
-    } , [isLoggedIn]);
+    }, [isLoggedIn]);
 
     const onChange = (e) => {
         setLogInFormValues({
@@ -58,7 +58,7 @@ export default function Login() {
     return (
         <div>
             <form onSubmit={loginSubmitHandler} className="form">
-                <h1>Let's Get Watering!</h1>
+                <h1>Sign in!</h1>
                 <input
                     placeholder="username"
                     name="username"
