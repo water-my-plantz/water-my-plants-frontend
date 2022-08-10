@@ -25,7 +25,7 @@ export default function NavBarContents() {
 
                     {(isLoggedIn === true) &&
                         <span className="nav-links">
-                            <li><Search /></li>
+                            <span className="search"><li><Search /></li></span>
                             {/* <li><Link to="/profile">Profile </Link> </li> */}
                             <li><Link to="/plants">All Plants</Link></li>
                             <li><Link to="/createplant">Add Plant</Link> </li>

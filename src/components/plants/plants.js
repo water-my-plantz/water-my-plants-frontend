@@ -31,7 +31,7 @@ export default function Plants() {
 
     return (
         <div>
-            {/* <Search /> */}
+            <span className="search-page"><Search /></span>
             <div className="CardSection">
                 {isFetchingPlants ? "Loading Plants..." :
                     filteredPlants.map((eachPlant) => (
