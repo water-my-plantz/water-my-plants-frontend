@@ -93,7 +93,7 @@ export default function CreatePlant() {
     return (
         <div>
             <form onSubmit={createPlantSubmitHandler} className="form">
-                <h2 class="create-h2" >Create a plant!</h2>
+                <h2 className="create-h2" >Create a plant!</h2>
                 <input
                     placeholder="Plant Name*"
                     name="nickname"

@@ -76,7 +76,7 @@ export default function EditPlant() {
         axios.put(
             `https://water-my-plants-fullstack-api.herokuapp.com/plants/${id}`,
             {
-                nickname: plantInfo.nickname, species: plantInfo.species, water_frequency: plantInfo.water_frequency, image: plantInfo.image,
+                id: plantId, nickname: plantInfo.nickname, species: plantInfo.species, water_frequency: plantInfo.water_frequency, image: plantInfo.image,
             },
         )
             .then((res) => {
