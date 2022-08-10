@@ -1,5 +1,5 @@
 import "../../App.css"
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useHistory, Redirect } from "react-router-dom";
 import { GlobalPropsContext } from '../GlobalPropsContext'
 import { axiosWithAuth } from '../../utils/axiosWithAuth'
@@ -34,6 +34,12 @@ export default function Signup() {
     const [disabled, setDisabled] = useState(initialDisabled);
     const { isLoggedIn, setIsLoggedIn } = useContext(GlobalPropsContext);
     let history = useHistory();
+
+    useEffect(() => {
+        if (isLoggedIn) {
+            history.push("/plants");
+        }
+    }, [isLoggedIn]);
 
 
     // controls the form input changes via state
