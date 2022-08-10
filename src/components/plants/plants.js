@@ -10,7 +10,7 @@ import axios from "axios";
 export default function Plants() {
     const { filteredPlants, isFetchingPlants } = useContext(GlobalPropsContext);
     // const [plantList, setPlantList] = useState([]);
-    const { setPlantList, hamburgerState } = useContext(GlobalPropsContext);
+    const { setPlantList, plantList, hamburgerState } = useContext(GlobalPropsContext);
 
 
     useEffect(() => {
@@ -26,17 +26,23 @@ export default function Plants() {
             });
         // };
         // getPlantList();
-    }, [setPlantList]);
+    }, []);
 
-
+console.log(plantList)
     return (
         <div>
             {hamburgerState && <Search />}
             <div className="CardSection">
-                {isFetchingPlants ? "Loading Plants..." :
-                    filteredPlants.map((eachPlant) => (
+            {
+            filteredPlants.length !== 0 ? (filteredPlants.map((eachPlant) => (
                         <Plant plant={eachPlant} key={eachPlant.id} />
-                    ))}
+                    ))
+                    ) : (
+                    plantList.map((eachPlant) => (
+                        <Plant plant={eachPlant} key={eachPlant.id} />
+                    ))
+                )
+                }
             </div>
         </div>
     )
