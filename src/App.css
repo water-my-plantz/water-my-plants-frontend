@@ -68,6 +68,10 @@ h1 {
   margin: 1rem;
 }
 
+.plant-title {
+  margin-bottom: 1rem;
+}
+
 /*  ___ Buttons ___ */
 
 .plantButton {
@@ -191,7 +195,12 @@ label {
   }
 
   .navBar {
-    background: linear-gradient(to right, rgba(80, 110, 81, 0.991), rgba(48, 116, 78, 0.973));
+    /* background: linear-gradient(to right, rgba(80, 110, 81, 0.991), rgba(48, 116, 78, 0.973)); */
+    backdrop-filter: blur(10px);
+    background: rgba(55, 69, 55, 0.637);
+    backdrop-filter: saturate(180%) blur(10px);
+
+
     padding: 1rem;
     margin-bottom: 2rem;
     height: 60px;
@@ -265,7 +274,11 @@ label {
   }
 
   .navBar {
-    background: linear-gradient(to right, rgba(80, 110, 81, 0.991), rgba(48, 116, 78, 0.973));
+    /* background: linear-gradient(to right, rgba(80, 110, 81, 0.991), rgba(48, 116, 78, 0.973)); */
+    backdrop-filter: blur(10px);
+    background: rgba(55, 69, 55, 0.637);
+    backdrop-filter: saturate(180%) blur(10px);
+
     padding: 1rem;
     margin-bottom: 2rem;
     height: 60px;
@@ -324,7 +337,12 @@ label {
   /* ___ Navbar ___ */
 
   .navBar {
-    background: linear-gradient(to right, rgba(80, 110, 81, 0.991), rgba(48, 116, 78, 0.973));
+    /* background: linear-gradient(to right, rgba(80, 110, 81, 0.991), rgba(48, 116, 78, 0.973)); */
+
+    backdrop-filter: blur(10px);
+    background: rgba(55, 69, 55, 0.637);
+    backdrop-filter: saturate(180%) blur(10px);
+
     padding: 1rem;
     margin-bottom: 2rem;
     height: 60px;
@@ -433,8 +451,8 @@ label {
 }
 
 img {
-  width: 300px;
-  height: 300px;
+  /* width: 300px; */
+  height: 400px;
   margin: 1rem;
   object-fit: contain
 }
@@ -443,10 +461,17 @@ img {
   justify-content: center;
   align-items: center;
   margin: 3rem;
-  padding: .9rem;
+  padding-bottom: 1rem;
   border-radius: .4rem;
   box-shadow: 0px 2px 5px #000000;
-  background: linear-gradient(to right, rgb(80, 110, 81), rgba(48, 116, 78, 0.973));
+  /* box-shadow: inset 0 0 2000px rgba(47, 90, 37, 0.051); */
+  backdrop-filter: blur(10px);
+  /* background: linear-gradient(to right, rgb(80, 110, 81), rgba(48, 116, 78, 0.973)); */
+  /* background: linear-gradient(to right, rgba(35, 67, 34, 0.832), rgba(34, 57, 37, 0.815)); */
+
+  background: rgba(55, 69, 55, 0.574);
+  backdrop-filter: saturate(180%) blur(10px);
+
 }
 
 
@@ -483,10 +508,10 @@ img {
     margin-bottom: 1.5rem;
   }
 
-  h2 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
+  /* h2 { */
+  /* margin-top: 2rem; */
+  /* margin-bottom: 1rem; */
+  /* } */
 
   .CardSection {
     /* background-color: rgb(255, 255, 255); */
