@@ -27,8 +27,8 @@ export default function Plant({ plant }) {
     return (
         <div className="plantCard">
 
-            <h2>{nickname}</h2>
             <img src={image} alt="" />
+            <h2 className="plant-title">{nickname}</h2>
             <p><span>Species:</span> {species} </p>
             <p><span>Watering Frequency:</span> {water_frequency}</p>
 
