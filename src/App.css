@@ -21,7 +21,7 @@
 }
 
 body {
-  background-image: url(/src/plantIMAGE.jpg);
+  background-image: url(/src/bg.jpg);
   background-color: #f4f0eb;
   color: #ffffff;
   font-family: inter;
@@ -180,7 +180,14 @@ label {
 /* ___ Breakpoints ___ */
 @media screen and (min-width: 1400px) {
 
-  /* ___ Navbar ___ */
+
+  img {
+    height: 500px;
+    margin: 1rem;
+    object-fit: contain
+  }
+
+
 
   .not-logged-in {
     display: flex;
@@ -259,7 +266,11 @@ label {
 
 @media screen and (min-width: 1120px) and (max-width: 1400px) {
 
-  /* ___ Navbar ___ */
+  img {
+    height: 650px;
+    margin: 1rem;
+    object-fit: contain
+  }
 
   .not-logged-in {
     display: flex;
@@ -334,7 +345,13 @@ label {
 
 @media screen and (min-width: 767px) and (max-width: 1120px) {
 
-  /* ___ Navbar ___ */
+  img {
+    height: 600px;
+    margin: .5rem;
+    object-fit: contain
+  }
+
+
 
   .navBar {
     /* background: linear-gradient(to right, rgba(80, 110, 81, 0.991), rgba(48, 116, 78, 0.973)); */
@@ -450,12 +467,11 @@ label {
   flex-wrap: wrap;
 }
 
-img {
-  /* width: 300px; */
+/* img {
   height: 400px;
   margin: 1rem;
   object-fit: contain
-}
+} */
 
 .plantCard {
   justify-content: center;
@@ -468,10 +484,8 @@ img {
   backdrop-filter: blur(10px);
   /* background: linear-gradient(to right, rgb(80, 110, 81), rgba(48, 116, 78, 0.973)); */
   /* background: linear-gradient(to right, rgba(35, 67, 34, 0.832), rgba(34, 57, 37, 0.815)); */
-
   background: rgba(55, 69, 55, 0.574);
   backdrop-filter: saturate(180%) blur(10px);
-
 }
 
 
@@ -537,7 +551,15 @@ img {
     border-radius: 0;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    background: linear-gradient(to right, rgba(32, 44, 30, 0.938), rgba(25, 68, 44, 0.932));
+    /* background: linear-gradient(to right, rgba(32, 44, 30, 0.938), rgba(25, 68, 44, 0.932)); */
+
+
+    box-shadow: 0px 2px 5px #000000;
+    backdrop-filter: blur(10px);
+    backdrop-filter: saturate(180%) blur(10px);
+    background: rgba(55, 69, 55, 0.574);
+
+
   }
 
 
