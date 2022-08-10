@@ -10,7 +10,7 @@ import axios from "axios";
 export default function Plants() {
     const { filteredPlants, isFetchingPlants } = useContext(GlobalPropsContext);
     // const [plantList, setPlantList] = useState([]);
-    const { plantList, setPlantList } = useContext(GlobalPropsContext);
+    const { setPlantList, hamburgerState } = useContext(GlobalPropsContext);
 
 
     useEffect(() => {
@@ -31,7 +31,7 @@ export default function Plants() {
 
     return (
         <div>
-            <span className="search-page"><Search /></span>
+            {hamburgerState && <Search />}
             <div className="CardSection">
                 {isFetchingPlants ? "Loading Plants..." :
                     filteredPlants.map((eachPlant) => (
