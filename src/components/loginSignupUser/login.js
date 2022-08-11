@@ -58,7 +58,7 @@ export default function Login() {
     return (
         <div>
             <form onSubmit={loginSubmitHandler} className="form">
-                <h1>Sign in!</h1>
+                <h2 class="sign-in">Sign in!</h2>
                 <input
                     placeholder="username"
                     name="username"
