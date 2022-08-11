@@ -701,3 +701,7 @@ a {
   margin-bottom: 2rem;
   margin-top: 1rem;
 }
+
+.sign-up-for-an-account {
+  text-shadow: 0 0 11px rgb(0, 0, 0), 0 0 11px rgb(0, 0, 0);
+}
