@@ -31,7 +31,8 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 100vh;
+  /* height: 100vh; */
+  min-height: 100vh
 }
 
 span {
@@ -451,12 +452,6 @@ label {
 }
 
 
-
-/* ___ Cards ___ */
-/* ___ Cards ___ */
-/* ___ Cards ___ */
-/* ___ Cards ___ */
-/* ___ Cards ___ */
 /* ___ Cards ___ */
 
 .CardSection {
@@ -612,11 +607,6 @@ label {
   }
 }
 
-
-
-
-
-
 a {
   text-align: center;
   color: #ffffff;
@@ -637,11 +627,12 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: linear-gradient(to right, rgb(38, 43, 38), rgba(31, 36, 33, 0.89));
+  /* background: linear-gradient(to right, rgb(16, 31, 16), rgba(10, 29, 18, 0.89)); */
+  background: #0d200c;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #686b8f;
+  background-color: #ffffff;
   border-radius: 1.25rem;
   border: .375rem solid transparent;
   background-clip: content-box;
