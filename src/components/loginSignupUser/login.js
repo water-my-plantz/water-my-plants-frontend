@@ -77,7 +77,7 @@ export default function Login() {
                     onChange={onChange}
                     value={loginFormValues.password}
                 />
-                <button type="submit">LogIn</button>
+                <button type="submit">LOG IN</button>
             </form>
 
             {loginError && (

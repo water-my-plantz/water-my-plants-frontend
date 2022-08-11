@@ -21,6 +21,7 @@
 }
 
 body {
+  position: absolute;
   background-image: url(/src/bg.jpg);
   background-color: #f4f0eb;
   color: #ffffff;
@@ -240,7 +241,6 @@ label {
     margin-left: 24px;
   }
 
-  /* was li, a */
   a {
     color: #ffffff;
     font-size: 1.2rem;
@@ -480,30 +480,13 @@ label {
   padding-bottom: 1rem;
   border-radius: .4rem;
   box-shadow: 0px 2px 5px #000000;
-  /* box-shadow: inset 0 0 2000px rgba(47, 90, 37, 0.051); */
   backdrop-filter: blur(10px);
-  /* background: linear-gradient(to right, rgb(80, 110, 81), rgba(48, 116, 78, 0.973)); */
-  /* background: linear-gradient(to right, rgba(35, 67, 34, 0.832), rgba(34, 57, 37, 0.815)); */
   background: rgba(55, 69, 55, 0.574);
   backdrop-filter: saturate(180%) blur(10px);
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-/*  ___ MOBILE ___ */
-/*  ___ MOBILE ___ */
-/*  ___ MOBILE ___ */
-/*  ___ MOBILE ___ */
 /*  ___ MOBILE ___ */
 
 
@@ -522,13 +505,7 @@ label {
     margin-bottom: 1.5rem;
   }
 
-  /* h2 { */
-  /* margin-top: 2rem; */
-  /* margin-bottom: 1rem; */
-  /* } */
-
   .CardSection {
-    /* background-color: rgb(255, 255, 255); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -551,15 +528,12 @@ label {
     border-radius: 0;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    /* background: linear-gradient(to right, rgba(32, 44, 30, 0.938), rgba(25, 68, 44, 0.932)); */
-
-
     box-shadow: 0px 2px 5px #000000;
     backdrop-filter: blur(10px);
     backdrop-filter: saturate(180%) blur(10px);
     background: rgba(55, 69, 55, 0.574);
 
-
+    flex-direction: row-reverse;
   }
 
 
@@ -682,7 +656,8 @@ a {
 
 .form {
   min-width: 250px;
-  margin: 75px auto 30px auto;
+  margin: 80px auto 32px auto;
+  padding: 30px 50px 80px 50px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -690,12 +665,12 @@ a {
   align-items: center;
   width: 400px;
   border: 1px solid black;
-  padding: 20px 30px 70px 30px;
-  background: linear-gradient(to right, rgba(86, 158, 90, 0.966), rgb(73, 141, 104));
-  border-radius: 5px;
-  -webkit-box-shadow: 0px 1px 5px #3d2121;
-  -moz-box-shadow: 0px 1px 5px #8a8181;
-  box-shadow: 0px 1px 5px #8a8181;
+  box-shadow: 0px 2px 5px #000000;
+  backdrop-filter: blur(10px);
+  background: rgba(55, 69, 55, 0.574);
+  backdrop-filter: saturate(180%) blur(10px);
+
+
 }
 
 .form input {
