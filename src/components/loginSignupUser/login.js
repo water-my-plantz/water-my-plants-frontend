@@ -92,10 +92,9 @@ export default function Login() {
                 }}
                 className="signUpFinePrintUnderForm"
             >
-                <span style={{ display: "inline" }}>
-                    {" "}
+                <p class="sign-up-for-an-account">
                     Brand New? Sign Up for an account!
-                </span>
+                </p>
             </p>
         </div>
     );
