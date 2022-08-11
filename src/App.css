@@ -22,7 +22,7 @@
 
 body {
   background-image: url(/src/bg.jpg);
-  background-color: #f4f0eb;
+  background-color: #0e1d0d;
   color: #ffffff;
   font-family: inter;
   text-align: center;
@@ -30,7 +30,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 100vh;
+  /* height: 100vh; */
   min-height: 100vh;
   min-height: -webkit-fill-available;
 }
@@ -491,7 +491,6 @@ label {
 
 @media screen and (max-width: 767px) {
 
-
   p {
     font-size: 1.1rem;
     line-height: 1.4;
@@ -696,4 +695,9 @@ a {
   text-decoration: none;
   list-style-type: none;
   color: #ffc7c7;
+}
+
+.sign-in {
+  margin-bottom: 2rem;
+  margin-top: 1rem;
 }
