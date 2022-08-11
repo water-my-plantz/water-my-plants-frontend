@@ -100,7 +100,7 @@ export default function Signup() {
         <div>
             <div>
                 <form onSubmit={signupSubmitHandler} className="form">
-                    <h1>Sign Up</h1>
+                    <h2 class="sign-in">Sign Up!</h2>
 
                     <input
                         placeholder="username"
@@ -153,9 +153,9 @@ export default function Signup() {
                     </button>
                 </form>
                 <p onClick={() => { history.push('/') }} className="signUpFinePrintUnderForm" >
-                    <span style={{ display: "inline" }}>
-                        Already Have An Account?...Login Here!
-                    </span>
+                    <p class="sign-up-for-an-account">
+                        Already Have An Account? Login Here!
+                    </p>
                 </p>
             </div>
         </div>
