@@ -487,20 +487,6 @@ label {
 
 
 
-
-
-
-
-
-
-
-
-
-
-/*  ___ MOBILE ___ */
-/*  ___ MOBILE ___ */
-/*  ___ MOBILE ___ */
-/*  ___ MOBILE ___ */
 /*  ___ MOBILE ___ */
 
 
@@ -519,13 +505,7 @@ label {
     margin-bottom: 1.5rem;
   }
 
-  /* h2 { */
-  /* margin-top: 2rem; */
-  /* margin-bottom: 1rem; */
-  /* } */
-
   .CardSection {
-    /* background-color: rgb(255, 255, 255); */
     display: flex;
     justify-content: center;
     align-items: center;
