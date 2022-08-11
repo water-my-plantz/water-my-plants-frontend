@@ -480,10 +480,7 @@ label {
   padding-bottom: 1rem;
   border-radius: .4rem;
   box-shadow: 0px 2px 5px #000000;
-  /* box-shadow: inset 0 0 2000px rgba(47, 90, 37, 0.051); */
   backdrop-filter: blur(10px);
-  /* background: linear-gradient(to right, rgb(80, 110, 81), rgba(48, 116, 78, 0.973)); */
-  /* background: linear-gradient(to right, rgba(35, 67, 34, 0.832), rgba(34, 57, 37, 0.815)); */
   background: rgba(55, 69, 55, 0.574);
   backdrop-filter: saturate(180%) blur(10px);
 }
@@ -682,7 +679,8 @@ a {
 
 .form {
   min-width: 250px;
-  margin: 75px auto 30px auto;
+  margin: 80px auto 32px auto;
+  padding: 30px 50px 80px 50px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -690,12 +688,12 @@ a {
   align-items: center;
   width: 400px;
   border: 1px solid black;
-  padding: 20px 30px 70px 30px;
-  background: linear-gradient(to right, rgba(86, 158, 90, 0.966), rgb(73, 141, 104));
-  border-radius: 5px;
-  -webkit-box-shadow: 0px 1px 5px #3d2121;
-  -moz-box-shadow: 0px 1px 5px #8a8181;
-  box-shadow: 0px 1px 5px #8a8181;
+  box-shadow: 0px 2px 5px #000000;
+  backdrop-filter: blur(10px);
+  background: rgba(55, 69, 55, 0.574);
+  backdrop-filter: saturate(180%) blur(10px);
+
+
 }
 
 .form input {

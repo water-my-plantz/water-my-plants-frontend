@@ -46,36 +46,36 @@ export default function Signup() {
     const onChange = (e) => {
         // const { name, value } = e.target;
         //validation
-    //     yup
-    //     .reach(signupFormSchema, name)
-    //     .validate(value)
-    //     .then(() => {
-    //         setSignupErrors({ ...signupErrors, [name]: "" });
-    //     })
-    //     .catch((err) => {
-    //         setSignupErrors({ ...signupErrors, [name]: err.message });
-    //     });
-    // console.log(signupErrors);
+        //     yup
+        //     .reach(signupFormSchema, name)
+        //     .validate(value)
+        //     .then(() => {
+        //         setSignupErrors({ ...signupErrors, [name]: "" });
+        //     })
+        //     .catch((err) => {
+        //         setSignupErrors({ ...signupErrors, [name]: err.message });
+        //     });
+        // console.log(signupErrors);
 
         setSignUpFormValues({
             ...signUpFormValues, [e.target.name]: e.target.value
         })
     }
 
-    	//ENABLE BUTTON WHEN NO ERRORS EXIST
-	// useEffect(() => {
+    //ENABLE BUTTON WHEN NO ERRORS EXIST
+    // useEffect(() => {
     //     signupFormSchema.isValid(signupFormValues).then((isSchemaValid) => {
-	// 		setCreateDisabled(!isSchemaValid);
-	// 	});
-	// }, [signupFormValues]);
+    // 		setCreateDisabled(!isSchemaValid);
+    // 	});
+    // }, [signupFormValues]);
 
     const signupSubmitHandler = (e) => {
         e.preventDefault();
 
 
         const newUser = {
-            username: signUpFormValues.username, 
-            password: signUpFormValues.password, 
+            username: signUpFormValues.username,
+            password: signUpFormValues.password,
             phone_number: signUpFormValues.phone_number
         }
 
@@ -90,7 +90,7 @@ export default function Signup() {
             })
             .catch(err => {
                 console.log(err);
-                <Redirect to="/signup"/>
+                <Redirect to="/signup" />
             })
     }
 
@@ -139,21 +139,21 @@ export default function Signup() {
                         id="retypePassword"
                         onChange={onChange}
                         value={signUpFormValues.retypePassword}
-                    />						
-                    
+                    />
+
                     {/* RENDER THE VALIDATION ERRORS HERE */}
-                        {/* <div className="formErrors">
+                    {/* <div className="formErrors">
 						<div>{createPotluckErrors.title}</div>
 						<div>{createPotluckErrors.date}</div>
 						<div>{createPotluckErrors.time}</div>
 						<div>{createPotluckErrors.location}</div>
 						</div> */}
                     <button type="submit" disabled={disabled}>
-                        Sign Up!
+                        SIGN UP
                     </button>
                 </form>
                 <p onClick={() => { history.push('/') }} className="signUpFinePrintUnderForm" >
-                    <span style={{display: "inline"}}>
+                    <span style={{ display: "inline" }}>
                         Already Have An Account?...Login Here!
                     </span>
                 </p>
