@@ -19,7 +19,7 @@ const initialCreatePlantFormErrors = {
     water_frequency: "",
 };
 
-const initialCreateButtonDisabled = true; 
+const initialCreateButtonDisabled = true;
 
 
 export default function CreatePlant() {
@@ -93,7 +93,7 @@ export default function CreatePlant() {
     return (
         <div>
             <form onSubmit={createPlantSubmitHandler} className="form">
-                <h2 className="create-h2" >Create a plant!</h2>
+                <h2 className="create-h2" >Add Plant!</h2>
                 <input
                     placeholder="Plant Name*"
                     name="nickname"
