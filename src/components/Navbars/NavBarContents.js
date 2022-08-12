@@ -17,14 +17,13 @@ export default function NavBarContents() {
                 <ul>
 
                     <div className="nav-water-my-plants-text">
-                        {/* <MdOutlineWaterDrop /> */}
                         <MdOutlineWaterDrop id="drop" />
                         <h3>Water My Plants</h3>
                     </div>
 
                     {(isLoggedIn === false) && <div className="not-logged-in">
-                        <li><Link to="/">Login</Link></li>
-                        <li><Link to="/signup">Signup</Link> </li>
+                        <li><Link to="/">Login</Link></li> 
+                        <li style={{marginLeft: '12px'}}><Link to="/signup">Signup</Link> </li>
                     </div>}
 
 

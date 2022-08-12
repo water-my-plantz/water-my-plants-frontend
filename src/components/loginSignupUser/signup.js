@@ -153,9 +153,9 @@ export default function Signup() {
                     </button>
                 </form>
                 <p onClick={() => { history.push('/') }} className="signUpFinePrintUnderForm" >
-                    <p class="sign-up-for-an-account">
+                    <a className="sign-up-for-an-account">
                         Already Have An Account? Login Here!
-                    </p>
+                    </a>
                 </p>
             </div>
         </div>

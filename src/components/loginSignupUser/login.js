@@ -58,7 +58,7 @@ export default function Login() {
     return (
         <div>
             <form onSubmit={loginSubmitHandler} className="form">
-                <h2 class="sign-in">Sign in!</h2>
+                <h2 class="sign-in">Welcome Back!</h2>
                 <input
                     placeholder="username"
                     name="username"
@@ -92,9 +92,9 @@ export default function Login() {
                 }}
                 className="signUpFinePrintUnderForm"
             >
-                <p class="sign-up-for-an-account">
+                <a className="sign-up-for-an-account">
                     Brand New? Sign Up for an account!
-                </p>
+                </a>
             </p>
         </div>
     );

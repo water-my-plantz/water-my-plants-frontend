@@ -279,7 +279,6 @@ label {
     font-size: 1rem;
     color: #000000;
     min-width: 100px;
-    margin-bottom: 20px;
     margin-left: 10%;
   }
 
@@ -369,7 +368,6 @@ label {
     font-size: 1rem;
     color: #000000;
     min-width: 100px;
-    margin-bottom: 20px;
     margin-left: 40%;
   }
 
@@ -438,7 +436,6 @@ label {
   font-size: 1rem;
   color: #000000;
   padding: .7rem;
-  /* min-width: 100px; */
 }
 
 .searchPlants {
@@ -449,7 +446,6 @@ label {
 
 
 /* ___ Cards ___ */
-
 .CardSection {
   display: flex;
   justify-content: center;
@@ -457,12 +453,6 @@ label {
   min-width: 300px;
   flex-wrap: wrap;
 }
-
-/* img {
-  height: 400px;
-  margin: 1rem;
-  object-fit: contain
-} */
 
 .plantCard {
   justify-content: center;
@@ -479,8 +469,6 @@ label {
 
 
 /*  ___ MOBILE ___ */
-
-
 @media screen and (max-width: 767px) {
 
   p {
@@ -567,7 +555,6 @@ label {
     color: #000000;
     min-width: 100px;
     width: 100%;
-    margin-bottom: 20px;
   }
 
   .nav-links {
@@ -577,7 +564,6 @@ label {
     text-align: right;
     color: #000000;
     width: 100%;
-    margin-bottom: 20px;
   }
 
   ul {
