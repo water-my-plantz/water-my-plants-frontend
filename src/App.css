@@ -135,8 +135,9 @@ h1 {
   border: .1rem solid rgb(58, 58, 58);
 }
 
-.signUpFinePrintUnderForm:hover {
-  color: #0053a0;
+.login:hover {
+  border: .1rem solid rgb(68, 250, 13);
+
 }
 
 

@@ -148,7 +148,7 @@ export default function Signup() {
 						<div>{createPotluckErrors.time}</div>
 						<div>{createPotluckErrors.location}</div>
 						</div> */}
-                    <button type="submit" disabled={disabled}>
+                    <button className='login' type="submit" disabled={disabled}>
                         SIGN UP
                     </button>
                 </form>
