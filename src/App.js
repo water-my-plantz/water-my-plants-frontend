@@ -13,6 +13,7 @@ import PrivateRoute from './components/PrivateRoute'
 import { GlobalPropsContext } from './components/GlobalPropsContext';
 import { BrowserRouter as Router } from "react-router-dom"
 
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [allPlants, setAllPlants] = useState([]);
@@ -36,9 +37,7 @@ function App() {
         <div className="App">
           <div className="overlay"></div>
           <GlobalPropsContext.Provider value={{ isLoggedIn, setIsLoggedIn, allPlants, setAllPlants, plantList, setPlantList, isFetchingPlants, setIsFetchingPlants, setFilteredPlants, filteredPlants, hamburgerState, setHamburgerState, navState, setNavState }}>
-
             <NavBar />
-
             <Switch>
               <Route path="/signup" component={Signup} />
               <Route exact path="/" component={Login} />

@@ -10,6 +10,7 @@
   color: #ffffff;
 }
 
+
 @font-face {
   font-family: 'inter';
   src: url(/src/inter.TTF);
@@ -185,15 +186,11 @@ label {
 
 /* ___ Breakpoints ___ */
 @media screen and (min-width: 1400px) {
-
-
   img {
     height: 500px;
     margin: 1rem;
     object-fit: contain
   }
-
-
 
   .not-logged-in {
     display: flex;
@@ -208,12 +205,9 @@ label {
   }
 
   .navBar {
-    /* background: linear-gradient(to right, rgba(80, 110, 81, 0.991), rgba(48, 116, 78, 0.973)); */
     backdrop-filter: blur(10px);
     background: rgba(55, 69, 55, 0.637);
     backdrop-filter: saturate(180%) blur(10px);
-
-
     padding: 1rem;
     margin-bottom: 2rem;
     height: 60px;
@@ -221,10 +215,24 @@ label {
     flex-direction: column;
   }
 
+  .nav-links {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 32%;
+    margin-left: 45%;
+    text-align: right;
+    align-items: center;
+    font-size: 1rem;
+    color: #000000;
+    min-width: 100px;
+  }
+
   .nav-water-my-plants-text {
     display: flex;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
   }
 
   h3 {
@@ -240,10 +248,7 @@ label {
     flex-flow: row nowrap;
     flex-direction: center;
     justify-content: space-around;
-  }
-
-  li {
-    margin-left: 24px;
+    align-items: center;
   }
 
   a {
@@ -255,19 +260,8 @@ label {
     color: #0053a0;
   }
 
-  .nav-links {
-    display: flex;
-    flex-flow: row nowrap;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 55%;
-    margin-left: 45%;
-    text-align: right;
-    font-size: 1rem;
-    color: #000000;
-    min-width: 100px;
-  }
 }
+
 
 @media screen and (min-width: 1120px) and (max-width: 1400px) {
 
@@ -286,7 +280,7 @@ label {
     color: #000000;
     min-width: 100px;
     margin-bottom: 20px;
-    margin-left: 60%;
+    margin-left: 10%;
   }
 
   .navBar {
@@ -294,7 +288,6 @@ label {
     backdrop-filter: blur(10px);
     background: rgba(55, 69, 55, 0.637);
     backdrop-filter: saturate(180%) blur(10px);
-
     padding: 1rem;
     margin-bottom: 2rem;
     height: 60px;
@@ -345,7 +338,9 @@ label {
     font-size: 1rem;
     color: #000000;
     min-width: 100px;
+    align-items: center;
   }
+
 }
 
 @media screen and (min-width: 767px) and (max-width: 1120px) {
@@ -356,11 +351,7 @@ label {
     object-fit: contain
   }
 
-
-
   .navBar {
-    /* background: linear-gradient(to right, rgba(80, 110, 81, 0.991), rgba(48, 116, 78, 0.973)); */
-
     backdrop-filter: blur(10px);
     background: rgba(55, 69, 55, 0.637);
     backdrop-filter: saturate(180%) blur(10px);
@@ -420,12 +411,13 @@ label {
     flex-flow: row nowrap;
     flex-direction: row;
     justify-content: space-between;
-    width: 76%;
+    width: 70%;
     margin-left: 1%;
     text-align: right;
     font-size: 1rem;
     color: #000000;
     min-width: 100px;
+    align-items: center;
   }
 }
 
@@ -446,7 +438,7 @@ label {
   font-size: 1rem;
   color: #000000;
   padding: .7rem;
-  min-width: 100px;
+  /* min-width: 100px; */
 }
 
 .searchPlants {
@@ -704,4 +696,47 @@ a {
 
 .sign-up-for-an-account {
   text-shadow: 0 0 11px rgb(0, 0, 0), 0 0 11px rgb(0, 0, 0);
+}
+
+
+
+
+
+.searchPlants {
+  display: inline-block;
+  position: relative;
+}
+
+.searchPlants:hover input {
+  width: 200px;
+  padding: 0 36px 0 8px;
+}
+
+/* input .searchInput { */
+.searchInput {
+  font-size: 1.5rem;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  transition: all 0.3s;
+}
+
+.search-icon {
+  font-size: 1.5rem;
+  width: 30px;
+  height: 30px;
+  backdrop-filter: blur(10px);
+  background: rgba(55, 69, 55, 0.706);
+  backdrop-filter: saturate(180%) blur(10px);
+  border: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#drop {
+  font-size: 1.5rem;
 }
