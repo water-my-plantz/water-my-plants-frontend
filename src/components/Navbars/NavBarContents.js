@@ -16,6 +16,7 @@ export default function NavBarContents() {
             <nav>
                 <ul>
 
+                    
                     <div className="nav-water-my-plants-text">
                         <MdOutlineWaterDrop id="drop" />
                         <h3>Water My Plants</h3>

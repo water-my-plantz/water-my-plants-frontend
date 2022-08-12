@@ -143,10 +143,9 @@ export default function Signup() {
 
                     {/* RENDER THE VALIDATION ERRORS HERE */}
                     {/* <div className="formErrors">
-						<div>{createPotluckErrors.title}</div>
-						<div>{createPotluckErrors.date}</div>
-						<div>{createPotluckErrors.time}</div>
-						<div>{createPotluckErrors.location}</div>
+						<div>{signupErrors.username}</div>
+						<div>{signupErrors.phone}</div>
+						<div>{signupErrors.password}</div>
 						</div> */}
                     <button className='login' type="submit" disabled={disabled}>
                         SIGN UP

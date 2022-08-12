@@ -201,7 +201,6 @@ label {
     font-size: 1rem;
     color: #000000;
     min-width: 100px;
-    margin-bottom: 20px;
     margin-left: 60%;
   }
 
@@ -232,7 +231,6 @@ label {
 
   .nav-water-my-plants-text {
     display: flex;
-    justify-content: center;
     align-items: center;
   }
 
