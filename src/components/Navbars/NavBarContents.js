@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import { GlobalPropsContext } from "../GlobalPropsContext";
 import Search from "../plants/search";
 
+import { MdOutlineWaterDrop } from "react-icons/md";
+
+
+
 export default function NavBarContents() {
     const { isLoggedIn } = useContext(GlobalPropsContext);
 
@@ -13,6 +17,8 @@ export default function NavBarContents() {
                 <ul>
 
                     <div className="nav-water-my-plants-text">
+                        {/* <MdOutlineWaterDrop /> */}
+                        <MdOutlineWaterDrop id="drop" />
                         <h3>Water My Plants</h3>
                     </div>
 
