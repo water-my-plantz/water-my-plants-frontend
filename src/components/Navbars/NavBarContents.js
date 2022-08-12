@@ -24,7 +24,7 @@ export default function NavBarContents() {
 
                     {(isLoggedIn === false) && <div className="not-logged-in">
                         <li><Link to="/">Login</Link></li> 
-                        <li style={{marginLeft: '12px'}}><Link to="/signup">Signup</Link> </li>
+                        <li style={{marginLeft: '60px'}}><Link to="/signup">Signup</Link> </li>
                     </div>}
 
 
