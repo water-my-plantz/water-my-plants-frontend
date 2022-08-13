@@ -29,7 +29,7 @@ export default function NavBar() {
             setNavState(true);
             setHamburgerState(false);
         }
-        if (width < 767) {
+        if (width < 768) {
             setNavState(false);
             setHamburgerState(false);
         }

@@ -348,7 +348,7 @@ label {
 
 }
 
-@media screen and (min-width: 767px) and (max-width: 1120px) {
+@media screen and (min-width: 768px) and (max-width: 1120px) {
 
   img {
     height: 600px;
@@ -426,7 +426,7 @@ label {
   }
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
   .hamburger {
     display: none;
   }
