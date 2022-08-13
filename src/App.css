@@ -135,9 +135,11 @@ h1 {
   border: .1rem solid rgb(58, 58, 58);
 }
 
+.login{
+  cursor: pointer;
+}
 .login:hover {
   border: .1rem solid rgb(68, 250, 13);
-
 }
 
 
@@ -231,6 +233,7 @@ label {
   }
 
   .nav-water-my-plants-text {
+    cursor: pointer;
     display: flex;
     align-items: center;
   }
@@ -293,6 +296,7 @@ label {
   }
 
   .nav-water-my-plants-text {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -372,6 +376,7 @@ label {
   }
 
   .nav-water-my-plants-text {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -688,6 +693,7 @@ a {
 }
 
 .sign-up-for-an-account {
+  cursor: pointer;
   text-shadow: 0 0 11px rgb(0, 0, 0), 0 0 11px rgb(0, 0, 0);
 }
 

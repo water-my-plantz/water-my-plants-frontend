@@ -3,6 +3,8 @@ import "../../App.css"
 import { Link } from "react-router-dom";
 import { GlobalPropsContext } from "../GlobalPropsContext";
 import Search from "../plants/search";
+import { useHistory } from "react-router-dom";
+
 
 import { MdOutlineWaterDrop } from "react-icons/md";
 
@@ -10,6 +12,7 @@ import { MdOutlineWaterDrop } from "react-icons/md";
 
 export default function NavBarContents() {
     const { isLoggedIn } = useContext(GlobalPropsContext);
+    let history = useHistory();
 
     return (
         <div>
@@ -17,7 +20,7 @@ export default function NavBarContents() {
                 <ul>
 
                     
-                    <div className="nav-water-my-plants-text">
+                    <div className="nav-water-my-plants-text" onClick={()=>{history.push("/plants")}}>
                         <MdOutlineWaterDrop id="drop" />
                         <h3>Water My Plants</h3>
                     </div>
