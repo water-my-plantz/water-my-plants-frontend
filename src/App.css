@@ -160,10 +160,14 @@ label {
   justify-self: left;
 }
 
+.pointer {
+  cursor: pointer;
+}
 
 .bar1,
 .bar2,
 .bar3 {
+  cursor: pointer;
   width: 33px;
   height: 4px;
   background-color: #ffffff;

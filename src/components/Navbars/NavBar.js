@@ -39,7 +39,6 @@ export default function NavBar() {
         <>
             <div className="nav-bar">
                 <div className="navBar">
-                    {/* <Hamburger hamburgerState={hamburgerState} setHamburgerState={setHamburgerState} /> */}
                     {(navState) && <NavBarContents />}
                 </div>
                 <div className="header">
