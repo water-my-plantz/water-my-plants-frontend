@@ -46,31 +46,31 @@ export default function EditPlant() {
     const onChange = (e) => {
         //VALIDATION
         const { name, value } = e.target;
-		yup
-			.reach(plantFormSchema, name)
-			.validate(value)
-			.then(() => {
-				setEditPlantErrors({ ...editPlantErrors, [name]: "" });
-			})
-			.catch((err) => {
-				setEditPlantErrors({ ...editPlantErrors, [name]: err.message });
-			});
-		console.log(editPlantErrors);
+        yup
+            .reach(plantFormSchema, name)
+            .validate(value)
+            .then(() => {
+                setEditPlantErrors({ ...editPlantErrors, [name]: "" });
+            })
+            .catch((err) => {
+                setEditPlantErrors({ ...editPlantErrors, [name]: err.message });
+            });
+        console.log(editPlantErrors);
 
         const newPlantFormValues = {
             ...plantFormValues,
             [name]: e.target.value,
         };
         setPlantFormValues(newPlantFormValues);
-        };
+    };
 
 
-	//ENABLE BUTTON WHEN NO ERRORS EXIST
-	useEffect(() => {
-		plantFormSchema.isValid(plantFormValues).then((isSchemaValid) => {
-			setEditDisabled(!isSchemaValid);
-		});
-	}, [plantFormValues]);
+    //ENABLE BUTTON WHEN NO ERRORS EXIST
+    useEffect(() => {
+        plantFormSchema.isValid(plantFormValues).then((isSchemaValid) => {
+            setEditDisabled(!isSchemaValid);
+        });
+    }, [plantFormValues]);
 
     const editPlantSubmitHandler = (e) => {
         e.preventDefault();
@@ -97,7 +97,7 @@ export default function EditPlant() {
     return (
         <div>
             <form onSubmit={editPlantSubmitHandler} className="form">
-                <h1>Edit Your Plant!</h1>
+                <h2 class="create-h2">Edit Your Plant!</h2>
                 <input
                     placeholder="Plant Name"
                     name="nickname"
@@ -140,10 +140,10 @@ export default function EditPlant() {
                     <div>{editPlantErrors.species}</div>
                     <div>{editPlantErrors.water_frequency}</div>
                 </div>
-                <button 
-                className='createButton'
-                type="submit"
-                disabled={editDisabled}
+                <button
+                    className='createButton'
+                    type="submit"
+                    disabled={editDisabled}
                 >
                     Submit Edits
                 </button>
