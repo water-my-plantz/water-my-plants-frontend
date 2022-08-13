@@ -7,6 +7,7 @@ import { MdSearch } from "react-icons/md";
 
 
 
+
 export default function Search() {
     const { setFilteredPlants, plantList } = useContext(GlobalPropsContext);
     const [searchInputValue, setSearchInputValue] = useState("");

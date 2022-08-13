@@ -4,6 +4,7 @@ import Hamburger from "./Hamburger";
 import NavBarContents from "./NavBarContents";
 import { GlobalPropsContext } from "../GlobalPropsContext";
 
+
 // custom hook for getting window size
 function useWindowSize() {
     const [width, setWidth] = useState([window.innerWidth]);
