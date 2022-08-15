@@ -10,7 +10,7 @@ import { MdOutlineWaterDrop } from "react-icons/md";
 
 export default function NavBarContents() {
     const { isLoggedIn } = useContext(GlobalPropsContext);
-    let history = useHistory();
+    const history = useHistory();
 
     return (
         <div>

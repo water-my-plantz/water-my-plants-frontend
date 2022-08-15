@@ -56,6 +56,7 @@ p {
   justify-content: center;
   align-items: center;
   font-family: rage;
+  cursor: pointer;
 }
 
 .header {

@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import "../../App.css"
 import Hamburger from "./Hamburger";
 import NavBarContents from "./NavBarContents";
@@ -21,8 +22,8 @@ function useWindowSize() {
 export default function NavBar() {
     const { hamburgerState, setHamburgerState } = useContext(GlobalPropsContext);
     const { navState, setNavState } = useContext(GlobalPropsContext);
+    const history = useHistory();
     const [width] = useWindowSize();
-
 
 
     useEffect(() => {
@@ -44,7 +45,7 @@ export default function NavBar() {
                 </div>
                 <div className="header">
                     <Hamburger hamburgerState={hamburgerState} setHamburgerState={setHamburgerState} />
-                    <h1 className="titleOfApp">Water My Plants</h1>
+                    <h1 className="titleOfApp" onClick={() => { history.push("/plants") }}>Water My Plants</h1>
                 </div>
                 {(hamburgerState) && <NavBarContents />}
             </div>
