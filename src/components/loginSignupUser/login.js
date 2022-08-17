@@ -51,7 +51,7 @@ export default function Login() {
             })
             .catch((err) => {
                 console.log(err);
-                <Redirect to="/login" />;
+                alert("Invalid username or password");
             });
     };
 

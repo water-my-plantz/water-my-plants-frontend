@@ -12,7 +12,7 @@ export default function Hamburger({ setHamburgerState, hamburgerState }) {
         // Activated by window width getting to mobile size
         <div className="hamburger">
             {(hamburgerState === false) &&
-                <label htmlFor="toggle" onClick={changeToX}>
+                <label className="pointer" htmlFor="toggle" onClick={changeToX}>
                     <div className="bar1"></div>
                     <div className="bar2"></div>
                     <div className="bar3"></div>

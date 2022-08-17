@@ -6,7 +6,6 @@ import { GlobalPropsContext } from "../GlobalPropsContext";
 import axios from "axios";
 
 
-
 export default function Plants() {
     const { filteredPlants, isFetchingPlants } = useContext(GlobalPropsContext);
     // const [plantList, setPlantList] = useState([]);
@@ -28,20 +27,20 @@ export default function Plants() {
         // getPlantList();
     }, []);
 
-console.log(plantList)
+    console.log(plantList)
     return (
         <div>
             {hamburgerState && <Search />}
             <div className="CardSection">
-            {
-            filteredPlants.length !== 0 ? (filteredPlants.map((eachPlant) => (
+                {
+                    filteredPlants.length !== 0 ? (filteredPlants.map((eachPlant) => (
                         <Plant plant={eachPlant} key={eachPlant.id} />
                     ))
                     ) : (
-                    plantList.map((eachPlant) => (
-                        <Plant plant={eachPlant} key={eachPlant.id} />
-                    ))
-                )
+                        plantList.map((eachPlant) => (
+                            <Plant plant={eachPlant} key={eachPlant.id} />
+                        ))
+                    )
                 }
             </div>
         </div>

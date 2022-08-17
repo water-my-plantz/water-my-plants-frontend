@@ -12,6 +12,7 @@ import Profile from './components/loginSignupUser/profile'
 import PrivateRoute from './components/PrivateRoute'
 import { GlobalPropsContext } from './components/GlobalPropsContext';
 import { BrowserRouter as Router } from "react-router-dom"
+import Footer from './components/Navbars/Footer';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
               <PrivateRoute path="/logout" component={Logout} />
               <PrivateRoute path="/editplant/:id" component={EditPlant} />
             </Switch>
+            <Footer />
           </GlobalPropsContext.Provider>
         </div>
       </Fragment>
