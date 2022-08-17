@@ -36,7 +36,7 @@ function App() {
     <Router>
       <Fragment>
         <div className="App">
-          <div className="overlay"></div>
+          {/* <div className="overlay"></div> */}
           <GlobalPropsContext.Provider value={{ isLoggedIn, setIsLoggedIn, allPlants, setAllPlants, plantList, setPlantList, isFetchingPlants, setIsFetchingPlants, setFilteredPlants, filteredPlants, hamburgerState, setHamburgerState, navState, setNavState }}>
             <NavBar />
             <Switch>
