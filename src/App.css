@@ -34,6 +34,8 @@ body {
   /* height: 100vh; */
   min-height: 100vh;
   min-height: -webkit-fill-available;
+
+  /* position: relative; */
 }
 
 html {
@@ -459,6 +461,7 @@ label {
   align-items: center;
   min-width: 300px;
   flex-wrap: wrap;
+  padding-bottom: 5rem;
 }
 
 .plantCard {
@@ -495,6 +498,8 @@ label {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    /* border: solid; */
+    padding-bottom: 2rem;
   }
 
   img {
@@ -744,8 +749,15 @@ a {
   font-size: 1.5rem;
 }
 
-.footer {
+/* .footer {
+  border: solid;
+  display: flex;
+  justify-content: center;
   padding-bottom: .5rem;
   padding-top: 2rem;
-  /* border: solid; */
-}
+  flex-direction: column;
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+} */
